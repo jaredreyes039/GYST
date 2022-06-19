@@ -1,0 +1,129 @@
+$linG1: #eebd89;
+$linG2: #d13abd;
+$lin: linear-gradient(45deg, $linG1 65%, $linG2);
+
+.repotrack-container{
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 5px solid whitesmoke;
+    border-radius: 16px;
+    grid-column: 1/5;
+    margin-left: 2.5%;;
+    margin-right: 2.5%;
+    padding: 2.5%;
+    display: grid;
+    grid-template-columns: repeat(10, 10%);
+    grid-template-rows: repeat(3, 1fr);
+    margin-bottom: 2.5%;
+    overflow-y: hidden;
+    grid-row: 5/21;
+    transition: all 250ms ease-in-out;
+    &:hover{
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.25);
+    }
+}
+.repotracker{
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding: 1%;
+    grid-column: 1/6;
+    grid-row: 1/4;
+    &::-webkit-scrollbar-track{
+        border-radius: 16px;
+    }
+    &::-webkit-scrollbar{
+        background-color: rgb(255,255,255,0.3);
+        border-radius: 16px;
+        width: 0.5em;
+    }
+    
+    &::-webkit-scrollbar-track{
+        background-color: transparent;
+        border-radius: 16px;
+    }
+    &::-webkit-scrollbar-thumb{
+        background-color: whitesmoke;
+        border-radius: 16px;
+    }
+}
+.repo-data-list{
+    overflow-x: hidden;
+    list-style: none;
+    margin: 2.5%;
+    border-radius: 16px;
+    padding: 2.5%;
+    transition: all 150ms ease-in-out;
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 16px;
+    &:hover{
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.25);
+    }
+    
+}
+.repo-data-list>li{
+    margin-top: 1%;
+    margin-bottom: 1%;
+    color: hsl(260, 4%, 16%);
+    text-align: right;
+}
+.repo-data-list>li>h3{
+    border-bottom: 2px solid whitesmoke;
+    text-align: left;
+    margin-bottom: 2.5%;
+    font-size: 150%;
+}
+.repo-data-list >li>.desc {
+    background-color: 	#aee6d3;
+    color: black;
+    font-weight: 800;
+    border-radius: 0px 16px 16px 0px;
+    padding-left: 1%;
+    padding-right: 1%;
+    float: left;
+}
+.repo-data-list >li>.push {
+    background-color: 	#e281aa;
+    color: black;
+    float: left;
+    border-radius: 0px 16px 16px 0px;
+    padding-left: 1%;
+    padding-right: 1%;
+    font-weight: 800;
+
+}
+.repo-data-list >li>.updated {
+    background-color: 	#f1e587;
+    color: black;
+    float: left;
+    border-radius: 0px 16px 16px 0px;
+    padding-left: 1%;
+    padding-right: 1%;
+    font-weight: 800;
+
+}
+.repo-data-list >li>.branch {
+    background-color: 	#9de2ef;
+    color: black;
+    float: left;
+    border-radius: 0px 16px 16px 0px;
+    padding-left: 1%;
+    padding-right: 1%;
+    font-weight: 800;
+
+}
+.repo-data-list >li>.watching {
+    background-color: #c395e0;
+    color: black;
+    float: left;
+    border-radius: 0px 16px 16px 0px;
+    padding-left: 1%;
+    padding-right: 1%;
+    font-weight: 800;
+
+}

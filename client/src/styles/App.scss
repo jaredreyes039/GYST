@@ -1,0 +1,21 @@
+$linG1: #eebd89;
+$linG2: #d13abd;
+$lin: linear-gradient(45deg, $linG2, $linG1);
+@import "~bootstrap/scss/bootstrap";
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: monospace;
+}
+
+
+.App{
+    background: $lin;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(20, 5vh);
+}

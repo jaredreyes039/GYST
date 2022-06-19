@@ -1,0 +1,78 @@
+.repolang-container{
+    grid-row: 3;
+    margin-left: 2.5%;;
+    padding: 2.5%;
+    margin-top: 2.5%;
+    grid-column: 6/11;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    &::-webkit-scrollbar-track{
+        border-radius: 16px;
+    }
+    &::-webkit-scrollbar{
+        background-color: rgb(255,255,255,0.3);
+        border-radius: 16px;
+        width: 0.5em;
+    }
+    
+    &::-webkit-scrollbar-track{
+        background-color: transparent;
+        border-radius: 16px;
+    }
+    &::-webkit-scrollbar-thumb{
+        background-color: whitesmoke;
+        border-radius: 16px;
+    }
+}
+.lang-list>h3{
+    text-align: center;
+    font-size: 125%;
+}
+.lang-list{
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 16px;
+    padding: 2.5%;
+}
+
+.bg-green{
+    background-color: 	#aee6d3 !important;
+}
+.bg-yellow{
+    background-color: 	#f1e587 !important;
+
+}
+.bg-teal{
+    background-color: 	#9de2ef !important;
+
+}
+.bg-red{
+    background-color: 	#e281aa !important;
+
+}
+.bg-purple{
+    background-color: #c395e0 !important;
+
+}
+
+.form-label{
+    margin-top: 2.5%;
+    margin-bottom: 2.5%;
+    font-weight: 900;
+    padding-left: 1%;
+    border-radius: 0px 16px 16px 0px;
+    background-color: #c395e0 !important;
+    padding-right: 2.5%;
+}
+.form-label-2{
+    font-weight: 900;
+    padding-left: 1%;
+    border-radius: 0px 16px 16px 0px;
+    background-color: 	#9de2ef !important;
+    padding-right: 2.5%;
+    margin-top: 2.5%;
+    margin-bottom: 2.5%;
+}
