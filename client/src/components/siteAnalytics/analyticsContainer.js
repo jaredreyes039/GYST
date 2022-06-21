@@ -11,7 +11,7 @@ export default function AnalyticsContainer(){
     // Might fetch twice?
 
     const fetchNetlifySites =async  () => {
-        const data = await fetch('/sitedata', {
+        const data = await fetch('http://localhost:5000/sitedata', {
             method: 'GET',
         }).then(res=>res.json()).then(data=> {return data})
             setNetData(data)
@@ -55,9 +55,9 @@ export default function AnalyticsContainer(){
                 if(site.build_settings.public_repo){
                      listDisp=
                         <ul className = 'repo-info-list'>
-                        <li><span>Repo Type: </span>{site.build_settings.repo_type}</li>
-                        <li><span>Repo Path: </span>{site.build_settings.repo_path}</li>
-                        <li><span>Repo URL: </span>{site.build_settings.repo_url}</li>
+                        <li><span>Repo Type: </span><p>{site.build_settings.repo_type}</p></li>
+                        <li><span>Repo Path: </span><p>{site.build_settings.repo_path}</p></li>
+                        <li><span>Repo URL: </span><a href = {site.build_settings.repo_url}>{site.build_settings.repo_url}</a></li>
                     </ul>
                     
                 } else {
@@ -125,7 +125,7 @@ export default function AnalyticsContainer(){
                }
 
                 return(
-                    <Carousel.Item style = {{minHeight: '60vh', maxHeight: '60vh',border: 'none'}}>
+                    <Carousel.Item className = 'resp' style = {{minHeight: '60vh', maxHeight: '60vh',border: 'none'}}>
                         <div className= 'site-container'>
                         {screenshotDisp}
                             <div className = 'site-info-basic'>

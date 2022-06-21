@@ -3,18 +3,17 @@ import '../../styles/components/nav/usermenu.scss'
 
 export default function UserMenu(){
     const [gitdata, setGitData] = useState()
-    useEffect(()=>{
-        async function fetchgit(){
-            const data = await fetch('https://api.github.com/users/jaredreyes039', {
-              method: 'GET',
-              headers: {
-                'Authorization': 'bearer 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'
-              }
-          }).then(res=> res.json()).then(data => {return(data)})
-          setGitData(data)
-       }
-       fetchgit()
-      }, [])
+    async function fetchgit(){
+        const data = await fetch('http://localhost:5000/gitdata', {
+          method: 'GET',
+      }).then(res=> res.json()).then(data => {return(data)})
+      setGitData(data)
+   }
+   
+         useEffect(()=>{
+            fetchgit()
+           }, [])
+           
       let backgroundUrl = ''
     if(gitdata){
         backgroundUrl = gitdata.avatar_url

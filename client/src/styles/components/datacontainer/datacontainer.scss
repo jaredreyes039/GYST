@@ -99,3 +99,35 @@
         font-weight: 750;
     }
 }
+
+@media  only screen and (max-width: 1380px){
+    .data-container{
+        grid-column: 1;
+        grid-row: 2/5;
+        border: none;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        padding: 0px !important;
+    }
+    .scroll-container{
+        grid-template-columns: 100%;
+        grid-template-rows: repeat(2, 1fr);
+        max-height: 25vh;
+        margin: 2.5%;
+        padding: 0%;
+    }
+    .user-list{
+        grid-column: 1;
+        grid-row: 1/2;
+        grid-row: 2/3;
+        margin: 0px;
+        padding: 0px;;
+        border: none;
+    }
+    .git-list{
+        grid-column: 1;
+        margin: 0px;
+        padding: 0px;;
+        border: none;
+    }
+}

@@ -127,3 +127,20 @@ $lin: linear-gradient(45deg, $linG1 65%, $linG2);
     font-weight: 800;
 
 }
+
+@media  only screen and (max-width: 1380px){
+    .repotrack-container{
+        grid-column: 1;
+        margin-top: 2.5%;
+        margin-bottom: 2.5%;
+        grid-row: 18/31;
+        border: none;
+        grid-template-columns: 100%;
+        grid-template-rows: repeat(10, 10vh);
+        gap: 2.5%;
+    }
+    .repotracker{
+        grid-row: 1/5;
+        grid-column: 1;
+    }
+}

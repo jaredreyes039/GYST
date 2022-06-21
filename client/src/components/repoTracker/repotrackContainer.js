@@ -8,7 +8,7 @@ import RepoLang from './repoLanguageDisp';
 export default function RepoTrackerContainer(){        
     const [gitdata, setGitData] = useState([])
     async function fetchgit(){
-        const data = await fetch('/gitdata', {
+        const data = await fetch('http://localhost:5000/gitdata', {
           method: 'GET',
       }).then(res=> res.json()).then(data => {return(data)})
       setGitData(data)

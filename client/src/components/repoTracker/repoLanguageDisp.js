@@ -9,7 +9,7 @@ export default function RepoLang(){
     const [contents, setContents] = useState([])
 
         async function getGitData(){
-            const data = await fetch('/gitdata', {
+            const data = await fetch('http://localhost:5000/gitdata', {
                 method: 'GET',
             }).then(res=> res.json()).then(data => {return(data)})
             let dataArr = []
