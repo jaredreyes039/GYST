@@ -1,6 +1,6 @@
 $bgColor: rgba(255, 255, 255, 0.2);
 $bgColorHover: rgba(255, 255, 255, 0.5);
-$bgColorActive: rgba(255, 255, 255, 0.9);
+$bgColorActive: rgba(255, 255, 255, 0.226);
 
 .navlist{
     flex-basis: 70%;
@@ -16,16 +16,26 @@ $bgColorActive: rgba(255, 255, 255, 0.9);
     text-align: center;
     padding-top: 1%;
     padding-bottom: 1%;
+    padding-right: 2.5%;
+    padding-left: 2.5%;
+    border-radius: 5px;
     transition: all 150ms ease-in-out;
     text-decoration: none;
     color: black;
     cursor: pointer;
     &:hover{
-        background-color: $bgColorHover;
-        color: rgba(0, 0, 0, 0.733)
+        background-color: whitesmoke !important;
+        color: black;
     }
     &:first-of-type{
         margin-left: 2.5%;
+    }
+}
+.navlist{
+    margin-bottom: 0px;
+    .active{
+        transition: all 150ms ease-in-out;
+        background-color: $bgColorActive;
     }
 }
 @media  only screen and (max-width: 1380px){
@@ -33,14 +43,14 @@ $bgColorActive: rgba(255, 255, 255, 0.9);
        font-size: 150%;
        padding-right: 2.5%;
        padding-left: 2.5%;
-       border-radius: 16px;
+       border-radius: 5px;
        
     }
     .navlist{
         margin-bottom: 0px;
         .active{
             transition: all 150ms ease-in-out;
-            background-color: $bgColorActive !important;
+            background-color: $bgColorActive;
         }
     }
 }

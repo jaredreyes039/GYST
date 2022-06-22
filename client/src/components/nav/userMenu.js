@@ -4,7 +4,7 @@ import '../../styles/components/nav/usermenu.scss'
 export default function UserMenu(){
     const [gitdata, setGitData] = useState()
     async function fetchgit(){
-        const data = await fetch('http://localhost:5000/gitdata', {
+        const data = await fetch('/gitdata', {
           method: 'GET',
       }).then(res=> res.json()).then(data => {return(data)})
       setGitData(data)

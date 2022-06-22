@@ -16,7 +16,6 @@
     overflow-y: hidden;
     grid-row: 15/21;
     transition: all 250ms ease-in-out;
-    border: 5px solid whitesmoke;
     &:hover{
         box-shadow: 0 4px 30px rgba(0, 0, 0, 0.25);
     }
@@ -26,6 +25,7 @@
     &::-webkit-scrollbar{
         background-color: rgb(255,255,255,0.3);
         border-radius: 16px;
+        height: 0.5em;
         width: 0.5em;
     }
     
@@ -128,4 +128,23 @@
     left: 49.5%;
     transform: translateX(-49.5%);
     margin: 1%;
+}
+
+@media  only screen and (max-width: 1380px){
+    .mongotrack-container{
+        grid-row: 31/36 ;
+        grid-column: 1;
+        flex-direction: column;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        border: none;
+        margin-left: 2.5%;
+        margin-right: 2.5%;
+    }
+    .questions-container{
+        margin-top: 2.5%;
+        margin-bottom: 2.5%;
+        min-width: none;
+        min-height: 10vh;
+    }
 }

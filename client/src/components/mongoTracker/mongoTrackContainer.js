@@ -37,7 +37,6 @@ export default function MongoTrackerContainer(){
                                             })}
                                         </ul>
                                         <li><span>Owner: </span>{question.owner.display_name}</li>
-                                        <li><img src = {question.owner.profile_image}></img></li>
                                     </ul>
                                     </div>
                                 </>
