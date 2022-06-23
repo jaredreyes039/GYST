@@ -11,7 +11,7 @@ export default function AnalyticsContainer(){
     // Might fetch twice?
 
     const fetchNetlifySites =async  () => {
-        const data = await fetch('http://localhost:5000/sitedata', {
+        const data = await fetch('/sitedata', {
             method: 'GET',
         }).then(res=>res.json()).then(data=> {return data})
             setNetData(data)
