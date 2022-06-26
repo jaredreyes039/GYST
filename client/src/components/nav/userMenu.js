@@ -9,7 +9,7 @@ export default function UserMenu(){
       }).then(res=> res.json()).then(data => {return(data)})
       setGitData(data)
    }
-   
+
          useEffect(()=>{
             fetchgit()
            }, [])

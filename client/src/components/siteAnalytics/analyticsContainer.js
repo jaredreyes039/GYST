@@ -11,7 +11,7 @@ export default function AnalyticsContainer(){
     // Might fetch twice?
 
     const fetchNetlifySites =async  () => {
-        const data = await fetch('/sitedata', {
+        const data = await fetch('http://localhost:5000/sitedata', {
             method: 'GET',
         }).then(res=>res.json()).then(data=> {return data})
             setNetData(data)
@@ -57,7 +57,7 @@ export default function AnalyticsContainer(){
                         <ul className = 'repo-info-list'>
                         <li><span>Repo Type: </span><p>{site.build_settings.repo_type}</p></li>
                         <li><span>Repo Path: </span><p>{site.build_settings.repo_path}</p></li>
-                        <li><span>Repo URL: </span><a href = {site.build_settings.repo_url}>{site.build_settings.repo_url}</a></li>
+                        <li><span>Repo URI: </span><a href = {site.build_settings.repo_url}>Link</a></li>
                     </ul>
                     
                 } else {

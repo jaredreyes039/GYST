@@ -1,4 +1,4 @@
-$linG1: #eebd89;
+$linG1: #9600ff;
 $linG2: #d13abd;
 $lin: linear-gradient(45deg, $linG2, $linG1);
 @import "~bootstrap/scss/bootstrap";
@@ -7,7 +7,7 @@ $lin: linear-gradient(45deg, $linG2, $linG1);
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
-    font-family: monospace;
+    font-family: 'Ubuntu Condensed', sans-serif;
 }
 
 
