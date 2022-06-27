@@ -6,7 +6,7 @@ export default function MongoTrackerContainer(){
 
     const [stackdata, setStackData] = useState({items: []})
     async function fetchStack(){
-        const data = await fetch('https://api.stackexchange.com/2.3/questions?site=stackoverflow&tagged=reactjs&pagesize=5', {
+        const data = await fetch('https://api.stackexchange.com/2.3/questions?site=stackoverflow&pagesize=5', {
           method: 'GET',
       }).then(res=> res.json()).then(data => {return(data)}).catch((err)=>{console.log(err)})
       setStackData(data)
