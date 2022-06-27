@@ -89,14 +89,15 @@ export default function RepoFileDisp(){
                 fetchContents()
             }, [gitdata])
 
-
-
      return(
         <>
             <div className="repofile-container">
                 <h2>Repo File Contents</h2>
                 <p>Select a file to download/view its contents</p>
-                {dispState}
+                {dispState ||  <h4 className = 'error-msg'>ERROR: Failed to load Github Repo Contents. Perhaps
+                    the personal token has expired? Access 
+                    <a href = 'https://www.github.com/'> Github Dev Settings</a> for more information.
+                </h4>}
             </div>
         </>
     )

@@ -75,8 +75,11 @@ export default function RepoLang(){
         <>
             <div className="repolang-container">
             <h2>Language Composition</h2>
-            <p>A breakdown of each repo's language composition</p>
-             {dispState}
+            <p>A breakdown of each repo's language composition.</p>
+             {dispState ||  <h4 className = 'error-msg'>ERROR: Failed to load Github Repo Language Composition. Perhaps
+                    the personal token has expired? Access 
+                    <a href = 'https://www.github.com/'> Github Dev Settings</a> for more information.
+                </h4>}
             </div>
         </>
     )

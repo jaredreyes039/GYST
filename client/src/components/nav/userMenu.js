@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 import '../../styles/components/nav/usermenu.scss'
 
+// DEPRECATED
+
 export default function UserMenu(){
     const [gitdata, setGitData] = useState()
     async function fetchgit(){
