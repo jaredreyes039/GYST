@@ -1,6 +1,7 @@
 $linG1: #9600ff;
 $linG2: #d13abd;
 $lin: linear-gradient(45deg, $linG2, $linG1);
+$lin2: linear-gradient(180deg, $linG2, $linG1);
 @import "~bootstrap/scss/bootstrap";
 
 * {
@@ -23,10 +24,10 @@ $lin: linear-gradient(45deg, $linG2, $linG1);
 // Mobile
 @media  only screen and (max-width: 1380px){
     .App{
+        background: $lin2;
         display: grid;
         grid-template-columns: 100%;
         grid-template-rows: repeat(35, 10vh);
-        overflow-x: hidden;
     }
 }
 

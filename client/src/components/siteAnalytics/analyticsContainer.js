@@ -11,7 +11,7 @@ export default function AnalyticsContainer(){
     // Might fetch twice?
 
     const fetchNetlifySites =async  () => {
-        const data = await fetch('/sitedata', {
+        const data = await fetch('http://localhost:5000/sitedata', {
             method: 'GET',
         }).then(res=>res.json()).then(data=> {return data})
             setNetData(data)
@@ -83,7 +83,6 @@ export default function AnalyticsContainer(){
                 }}
                 label={`${site.published_deploy.site_capabilities.forms.submissions.used /site.published_deploy.site_capabilities.forms.submissions.included}%`}
                     ></ProgressBar>
-                    <li>Used: {site.published_deploy.site_capabilities.forms.submissions.used}</li>
                     <li>Available: {site.published_deploy.site_capabilities.forms.submissions.included} submissions</li>
                     <label className='form-label-2 ' htmlFor = 'storage'>Storage: </label>
                     <ProgressBar
@@ -98,7 +97,6 @@ export default function AnalyticsContainer(){
                 }}
                 label={`${site.published_deploy.site_capabilities.forms.storage.used /site.published_deploy.site_capabilities.forms.storage.included}%`}
                     ></ProgressBar>
-                    <li>Used: {site.published_deploy.site_capabilities.forms.storage.used}</li>
                     <li>Available: {site.published_deploy.site_capabilities.forms.storage.included} bytes</li>
                     </li>
                 }

@@ -1,6 +1,5 @@
 .repolang-container{
     grid-row: 3;
-    margin-left: 2.5%;;
     padding: 2.5%;
     grid-column: 6/11;
     overflow-y: scroll;
@@ -23,9 +22,9 @@
         border-radius: 16px;
     }
 }
-.lang-list>h3{
-    text-align: center;
-    font-size: 125%;
+.lang-list>h6{
+    overflow-x: hidden;
+    width: 100%;
 }
 .lang-list{
     background: rgba(255, 255, 255, 0.1);
@@ -80,5 +79,10 @@
     .repolang-container{
         grid-column: 1;
         grid-row: 8/11;
+        padding: 1%;
+    }
+    .lang-list{
+        margin: 2.5%;
+        padding: 2.5%;
     }
 }

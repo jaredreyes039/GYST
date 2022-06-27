@@ -132,7 +132,7 @@
 
 @media  only screen and (max-width: 1380px){
     .mongotrack-container{
-        grid-row: 31/36 ;
+        grid-row: 30/36 ;
         grid-column: 1;
         flex-direction: column;
         overflow-x: hidden;
@@ -146,5 +146,6 @@
         margin-bottom: 2.5%;
         min-width: none;
         min-height: 10vh;
+        margin-left: 0px;
     }
 }

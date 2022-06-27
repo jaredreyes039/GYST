@@ -72,6 +72,8 @@
 .file-list>li{
     margin-bottom: 2.5%;
     margin-top: 2.5%;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 .file-list>li>span{
@@ -87,5 +89,11 @@
     .repofile-container{
         grid-column: 1;
         grid-row: 5/8;
+        margin: 0px;
+        padding: 1%;
+    }
+    .file-list{
+        margin: 2.5%;
+        padding: 2.5%;
     }
 }

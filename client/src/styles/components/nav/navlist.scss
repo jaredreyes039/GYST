@@ -37,19 +37,33 @@ $bgColorActive: rgba(255, 255, 255, 0.25);
         background-color: $bgColorActive;
     }
 }
+
+
 @media  only screen and (max-width: 1380px){
     .navlist-item{
        font-size: 150%;
-       padding-right: 2.5%;
-       padding-left: 2.5%;
+      padding-left: 10% !important;
+      padding-right: 10% !important;
+      padding-top: 5% !important;
+      padding-bottom: 5% !important;
        border-radius: 5px;
+       margin-left: 2.5%;
+       margin-right: 2.5%;
        
     }
     .navlist{
+        padding: 0px;
         margin-bottom: 0px;
+        margin-top: 0px;
+        margin-left: 2.5%;
+        flex-direction: row;
+        justify-content: unset;
         .active{
             transition: all 150ms ease-in-out;
-            background-color: $bgColorActive;
+            background-color: $bgColorActive !important;
+            &:hover{
+                background-color: whitesmoke !important;
+            }
         }
     }
 }

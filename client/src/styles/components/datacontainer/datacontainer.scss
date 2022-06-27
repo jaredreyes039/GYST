@@ -72,6 +72,7 @@
     margin-right: 2.5%;
     padding-left: 2.5% !important;
     transition: all 150ms ease-in-out;
+    padding-right: 2.5% !important;
     &:hover{
         padding-right: 5% !important;
         font-weight: 750;
@@ -130,12 +131,17 @@
         grid-row: 2/3;
         margin: 0px;
         padding: 0px;;
-        border: none;
+        img{
+            display: none;
+        }
     }
     .git-list{
         grid-column: 1;
         margin: 0px;
         padding: 0px;;
-        border: none;
+        border-bottom: 5px dotted whitesmoke;
+        img{
+            display: none;
+        }
     }
 }
