@@ -4,7 +4,7 @@
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     border-radius: 16px;
-    grid-column: 1/5;
+    grid-column: 2/5;
     margin-left: 2.5%;;
     margin-right: 2.5%;
     margin-top: 1%;
@@ -64,7 +64,6 @@
     cursor: default;
     margin-right: 2.5%;
     margin-left: 2.5%;
-    border: 5px dotted whitesmoke;
     border-radius: 16px;
 }
 .user-list>li>span{
@@ -96,6 +95,17 @@
     &:hover{
         padding-right: 5% !important;
         font-weight: 750;
+    }
+}
+
+.error-msg>a{
+    color: whitesmoke;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 100ms ease-in-out;
+    &:hover{
+        color: whitesmoke;
+        opacity: 80%;
     }
 }
 

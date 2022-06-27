@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@emotion/react": "^11.9.3",
+    "@emotion/styled": "^11.9.3",
+    "@mui/icons-material": "^5.8.4",
+    "@mui/material": "^5.8.5",
     "@nivo/core": "^0.79.0",
     "@nivo/pie": "^0.79.1",
     "@nivo/radial-bar": "^0.79.1",

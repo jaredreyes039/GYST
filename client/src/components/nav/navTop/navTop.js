@@ -8,7 +8,6 @@ export default function NavTop(){
         <>
             <NavBar>
                 <NavListTop/>
-                <UserMenu />
             </NavBar>
         </>
     )
