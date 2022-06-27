@@ -91,6 +91,7 @@ if(gitdata != undefined){
     </>
 } else{
     gitDisp = <h5 className='error-msg'>ERROR: Could not load Github user data.
+
     Perhaps the personal token has expired? Access
     <a href = 'https://www.github.com/'> Github Dev Settings</a> for more information.
 </h5>
