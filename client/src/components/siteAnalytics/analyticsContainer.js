@@ -11,7 +11,7 @@ export default function AnalyticsContainer(){
     // Might fetch twice?
 
     const fetchNetlifySites =async  () => {
-        const data = await fetch('/sitedata', {
+        const data = await fetch('http://localhost:5000/sitedata', {
             method: 'GET',
         }).then(res=>res.json()).then(data=> {return data})
             setNetData(data)
@@ -31,6 +31,7 @@ export default function AnalyticsContainer(){
       };
       
       const ControlledCarousel = () => {
+        if(netData.length > 0){
         return (
           <Carousel style={{width: '100%'}} activeIndex={index} onSelect={handleSelect}>
             {netData.map((site)=>{
@@ -57,7 +58,7 @@ export default function AnalyticsContainer(){
                         <ul className = 'repo-info-list'>
                         <li><span>Repo Type: </span><p>{site.build_settings.repo_type}</p></li>
                         <li><span>Repo Path: </span><p>{site.build_settings.repo_path}</p></li>
-                        <li><span>Repo URL: </span><a href = {site.build_settings.repo_url}>Link</a></li>
+                        <li><span>Repo URI: </span><a href = {site.build_settings.repo_url}>Link</a></li>
                     </ul>
                     
                 } else {
@@ -168,7 +169,14 @@ export default function AnalyticsContainer(){
                 )
             })}
           </Carousel>
-        );
+        )}else{
+            return(
+                <h4 className = 'error-msg'>ERROR: Failed to load Netlify Module, perhaps
+                the request limit has been reached or the personal token has expired? Access
+                <a href = 'https://netlify.com'> Netlify Dev Settings</a> for more information.
+            </h4>
+            )
+        };
       }
       
       
@@ -176,7 +184,7 @@ export default function AnalyticsContainer(){
     return(
         <>
             <div className="analytics-container">
-                {ControlledCarousel()}
+                {ControlledCarousel() || <h5>ERROR</h5>}
             </div>
         </>
     )

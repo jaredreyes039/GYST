@@ -16,7 +16,7 @@ $lin: linear-gradient(45deg, $linG2, $linG1);
     background-size: cover;
     background-repeat: no-repeat;
     display: grid;
-    grid-template-columns: repeat(10, 1fr);
+    grid-template-columns: 2.5% repeat(9, 1fr);
     grid-template-rows: repeat(20, 5vh);
 }
 

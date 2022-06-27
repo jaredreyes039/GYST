@@ -17,7 +17,7 @@ export default function MongoTrackerContainer(){
       }, [])
 
       const stackDisp = () => {
-        if(stackdata){
+        if(stackdata.items.length > 0){
             return(
                 <>
                         {stackdata.items.map((question)=>{
@@ -48,7 +48,10 @@ export default function MongoTrackerContainer(){
         else{
             return(
                 <>
-                    <h1>Error</h1>
+                    <h4 className = 'error-msg'>ERROR: Failed to load StackExchange Module, perhaps
+                    the request limit has been reached? Read the
+                    <a href = 'https://api.stackexchange.com/docs'> StackExchange API docs</a> for more information.
+                </h4>
                 </>
             )
         }

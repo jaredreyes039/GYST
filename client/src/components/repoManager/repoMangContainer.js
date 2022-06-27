@@ -3,7 +3,6 @@ import '../../styles/components/repoMang/repomang.scss'
 export default function RepoManager(){
     return(
         <>
-            <div className="repo-manager-container">
                 <fieldset name = 'create' className='repo-create'>
                     <legend htmlFor = 'create'>Create a Repo</legend>
                     <input type='text' placeholder = 'Repo Name' />
@@ -16,11 +15,10 @@ export default function RepoManager(){
                         <option>TEMPLATE</option>
                     </select>
                     <label htmlFor='IncludeBranches'>Include All Branches?</label>
-                    <input type='checkbox' name = 'IncludeBranches'></input>
+                    <input type='checkbox' className='check' name = 'IncludeBranches'></input>
                     <label htmlFor='Private'>Private Repo?</label>
-                    <input type='checkbox' name = 'Private'></input>
+                    <input className='check'  type='checkbox' name = 'Private'></input>
                 </fieldset>
-            </div>
         </>
     )
 }
