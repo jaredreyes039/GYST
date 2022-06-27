@@ -8,7 +8,7 @@ export default function UserContainer(){
     const [gitdata, setGitData] = useState([])
 
     async function fetchgit(){
-        const data = await fetch('http://localhost:5000/gitdatauser', {
+        const data = await fetch('/gitdatauser', {
           method: 'GET',
       }).then(res=> res.json()).then(data => {return(data)}).catch((err)=>console.log(err))
       setGitData(data)
@@ -19,7 +19,7 @@ export default function UserContainer(){
       }, [])
 
       const fetchNetlifyUser =async  () => {
-        const data = await fetch('http://localhost:5000/siteuserdata', {
+        const data = await fetch('/siteuserdata', {
             method: 'GET',
         }).then(res=>res.json()).then(data=> {return data}).catch((err)=>console.log(err))
             setNetData(data)
@@ -30,7 +30,7 @@ export default function UserContainer(){
     }, [])
 
     const fetchNetlifyAccount =async  () => {
-        const data = await fetch('http://localhost:5000/siteaccountdata', {
+        const data = await fetch('/siteaccountdata', {
             method: 'GET',
         }).then(res=>res.json()).then(data=> {return data}).catch((err)=>console.log(err))
             setAccountData(data)
