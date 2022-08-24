@@ -153,5 +153,3 @@ app.use('/user/:username', userRouter)
     })
 
 // Connection Successful!!!! :3
-
-module.exports = gitBearer = gitToken[0];
