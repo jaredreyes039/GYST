@@ -1,0 +1,25 @@
+.nav-list{
+    list-style: none;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .active{
+        background-color: #8e43a7;
+    }
+    li{
+        color: #f3f3f3;
+        width: 80%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        aspect-ratio: 1;
+        border-radius: 15px;
+        margin-bottom: 15%;
+        &:hover{
+            background-color: rgb(154, 51, 189);
+            cursor: pointer;
+        }
+    }
+}

@@ -1,0 +1,51 @@
+@import '../../app_styles/global.scss';
+
+.repo-table-main{
+    border-spacing: 0px;
+    text-align: center;
+    height: 4vh !important;
+    max-height: 2vh !important;
+    width: 100%;
+    thead{
+        position: sticky;
+        top:0px;
+        left: 0px;
+        background-color: $Purp2;
+        color: white;
+        tr{
+            th{
+                width: 15%;
+                padding: 2.5% !important;
+            }
+        }
+    }
+    tbody{
+        background-color: $White1;
+        tr{
+            transition: all 250ms ease-in-out;
+            td{
+            padding-top: 2.5%;
+            padding-bottom: 2.5%;
+            a{
+                text-decoration: none;
+                color: inherit;
+                &:hover{
+                    color: inherit;
+                    text-decoration: underline;
+                }
+                &:visited{
+                    color: inherit;
+                }
+            }
+            }
+            &:nth-of-type(2n){
+                background-color: $White2;
+            }
+            &:hover{
+                background-color: $Purp1;
+                color: white !important;
+            }
+        }
+
+    }
+}

@@ -1,0 +1,39 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Ubuntu Condensed', sans-serif;
+
+}
+
+
+@mixin ScrollKit {
+    &::-webkit-scrollbar{
+        background-color: $DB1;
+        width: 0.5em;
+    }
+    
+    &::-webkit-scrollbar-track{
+        background-color: transparent;
+    }
+    &::-webkit-scrollbar-thumb{
+        background-color: $DB2;
+    }
+}
+
+
+// Var Declarations
+
+// Color Palette
+
+$DB1: #00004b;
+$DB2: 	#4e4cb0;
+
+$Purp1: #4E1BB4;
+$Purp2: #8250E5;
+$Grn1:#97ce08;
+$Gray1: #333333;
+$White1: #f1f1f1;
+$White2: #f9f9f9;
+
+

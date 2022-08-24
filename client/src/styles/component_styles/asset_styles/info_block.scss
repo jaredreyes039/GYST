@@ -1,0 +1,81 @@
+@import '../../app_styles/global.scss';
+
+.info-block{
+    background: linear-gradient(180deg, $White1 0%, $White2 100%);
+    width: 100%;;
+    text-align: center;
+    padding: 2.5%;
+    border-radius: 5px;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.5);
+    h1{
+        font-size: 1.75em;
+        color: $Purp1;
+    }
+    h2{
+        color: $Gray1;
+        font-size: 1.5em;
+    }
+    h3{
+        color: $Purp2;
+        opacity: 0.95;
+        font-size: 1em;
+    }
+    img{
+        display: none;
+    }
+}
+
+.privpub{
+    grid-column: 1/3;
+    grid-row: 11/14;
+    margin: 5%;
+
+}
+
+.social{
+    grid-column: 3/5;
+    grid-row: 11/14;
+    margin: 5%;
+
+}
+
+.bioblock{
+    grid-column: 1/5;
+    grid-row: 7/11;
+    margin: 2.5%;
+    font-size: 0.85rem !important;
+}
+
+.gist{
+    grid-column: 1/3;
+    grid-row: 14/17;
+    margin: 5%;
+}
+
+.disk{
+    grid-column: 3/5;
+    grid-row: 14/17;
+    margin: 5%;
+}
+
+.headblock{
+    grid-column: 1/5;
+    grid-row: 1/6;
+    margin: 2.5%;
+    line-height: 2em;
+    h1{
+        border-bottom: 2px solid #333333;
+        margin-bottom: 2.5%;
+    }
+    h3{
+        font-size: 1.5em;
+    }
+    img{
+        display: unset !important;
+        width: 69px;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.5);
+        border: 5px solid $Purp2;
+    }
+}
