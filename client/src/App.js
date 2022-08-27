@@ -1,4 +1,3 @@
-import BioBlock from "./components/Info_Blocks/BioBlock";
 import DiskUsage from "./components/Info_Blocks/DiskUsage";
 import FollowStatusBlock from "./components/Info_Blocks/FollowStatusBlock";
 import GistBlock from "./components/Info_Blocks/GistBlock";

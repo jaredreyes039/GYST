@@ -9,8 +9,20 @@ export default function RepoTable(){
     const [isLoading, setIsLoading] = useState(true);
     const [dispState, setDispState] = useState("");
 
-    const fetchgit = () => {
-        fetch('http://localhost:5000/user/jaredreyes039')
+    function check_cookie_name(name) 
+    {
+      var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+      if (match) {
+        return(match[2]);
+      }
+      else{
+           return('--something went wrong---');
+      }
+   }
+
+    const fetchgit = async () => {
+        let session = await check_cookie_name("USRCDE");
+        fetch (`http://localhost:5000/user/${session}`)
             .then(res=>res.json())
             .then(data => setGitData(data))
             .finally(()=>setIsLoading(false))
@@ -21,7 +33,14 @@ export default function RepoTable(){
 
     useEffect(()=>{
         if(isLoading){
-            setDispState(<tr><td>"Loading..."</td></tr>)
+            setDispState(<tr>
+                            <td>Loading Repo Names...</td>
+                            <td>Loading Update Dates...</td>
+                            <td>Loading Owners...</td>
+                            <td>Loading Issues...</td>
+                            <td>Loading Links...</td>
+                            <td>Loading Watchers...</td>
+                        </tr>)
         } 
         else if (gitData && gitData.repo_data){
             setDispState(gitData.repo_data.map((repo)=>{

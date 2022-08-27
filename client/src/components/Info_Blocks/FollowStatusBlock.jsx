@@ -10,9 +10,22 @@ export default function FollowStatusBlock(){
     const [followerCount, setFollowerCount] = useState("");
     const [followingCount, setFollowingCount] = useState("");
 
+    function check_cookie_name(name) 
+    {
+      var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+      if (match) {
+        return(match[2]);
+      }
+      else{
+           return('--something went wrong---');
+      }
+   }
+
+
 
     const fetchgit = async () => {
-        fetch (`http://localhost:5000/user/jaredreyes039`)
+        let session = await check_cookie_name("USRCDE");
+        fetch (`http://localhost:5000/user/${session}`)
             .then(res=>res.json())
             .then(data=>{setGitData(data);console.log(data)})
     }
@@ -24,13 +37,16 @@ export default function FollowStatusBlock(){
 
     
     useEffect(()=>{
-        if(isLoading){
-            setDispState(<tr><td>"Loading..."</td></tr>)
+        if(!isLoading){
+            if(gitData.followers !== undefined && gitData.following !== undefined){
+                    setFollowerCount(gitData.followers)
+                    setFollowingCount(gitData.following)
+                 }
         }
         else{
-           setFollowerCount(gitData.followers)
-           setFollowingCount(gitData.following)
-        }
+                setFollowerCount("Loading...")
+                setFollowingCount("Loading...")
+            }
     }, [gitData, isLoading])
     return(
         <div className="social">

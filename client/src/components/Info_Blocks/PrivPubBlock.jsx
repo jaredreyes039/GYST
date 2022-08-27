@@ -10,8 +10,21 @@ export default function PrivPubBlock(){
     const [pubCount, setPubCount] = useState("");
     const [privCount, setPrivCount] = useState("")
 
+    function check_cookie_name(name) 
+    {
+      var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+      if (match) {
+        return(match[2]);
+      }
+      else{
+           return('--something went wrong---');
+      }
+   }
+
+
     const fetchgit = async () => {
-        fetch (`http://localhost:5000/user/jaredreyes039`)
+        let session = await check_cookie_name("USRCDE");
+        fetch (`http://localhost:5000/user/${session}`)
             .then(res=>res.json())
             .then(data=>setGitData(data))
     }
@@ -22,12 +35,14 @@ export default function PrivPubBlock(){
     }, [])
 
     useEffect(()=>{
-        if(isLoading){
-            setDispState(<tr><td>"Loading..."</td></tr>)
-        }
-        else{
-           setPubCount(gitData.public_repos)
+        if(!isLoading){
+            if(gitData.public_repos !== undefined && gitData.owned_private_repos !== undefined){
+            setPubCount(gitData.public_repos)
            setPrivCount(gitData.owned_private_repos)
+            }}
+        else{
+            setPubCount("Loading...")
+            setPrivCount("Loading...")
         }
     }, [gitData, isLoading])
     return(

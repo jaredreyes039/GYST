@@ -4,7 +4,7 @@ export default function InfoBlock(props){
     return(
         <div className='info-block'>
             <h1>{props.title}</h1>
-            <img src = {props.ProfPic} alt = {props.alt}/>
+            {props.img}
             <h2>{props.data}</h2>
             <h3>{props.label}</h3>
             {props.children}

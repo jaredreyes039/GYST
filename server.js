@@ -9,6 +9,7 @@ const got = require('got');
 const UserData = require('./Models/UserData_Model')
 const cookieParser = require('cookie-parser')
 const { MongoClient } = require("mongodb");
+const uuid = require('uuid')
 
 
 // Routers
@@ -34,6 +35,7 @@ app.get('/auth-req', (req,res)=>{
     res.redirect('https://github.com/login/oauth/authorize?client_id=ecb7c28dbb054b477bb7&scope=user%20repo');
 });
 app.get('/auth-req-callback', async (req,res)=>{
+    let USRCDE = uuid.v4()
     const code = req.query.code;
     const client_id = "ecb7c28dbb054b477bb7";
     const client_secret = "79f47986df6ad49f76b8613698fb0bf58da07cf7";
@@ -58,9 +60,6 @@ app.get('/auth-req-callback', async (req,res)=>{
         )
     .then((res)=> parseQuery(res.data))
     .then((data)=>{
-        
-        console.log(data.access_token)
-        console.log(data)
         res.redirect('http://localhost:3000')
         gitToken.push(data.access_token)
     })
@@ -72,34 +71,45 @@ app.get('/auth-req-callback', async (req,res)=>{
                     "Authorization":"token " + `${gitToken[0]}`,
                 }
             }
-            ).then(res1 =>{
+            )
+            .then(resUser => {
                 axios
-                    .get('https://api.github.com/user/repos', {headers:
+                    .get('https://api.github.com/issues', {headers:
                     {
                         "Authorization":"token " + `${gitToken[0]}`,
                     }
                 })
-                    .then((res2)=>{
-                        console.log(res1.data)
-                        const User = new UserData(
-                            {
-                                user: res1.data.login.toString(),
-                                user_image: res1.data.avatar_url,
-                                session_id: gitToken[0],
-                                bio: res1.data.bio.toString(),
-                                followers: res1.data.followers,
-                                following: res1.data.following,
-                                public_repos: res1.data.public_repos,
-                                private_gists: res1.data.private_gists,
-                                owned_private_repos: res1.data.owned_private_repos,
-                                disk_usage: res1.data.disk_usage,
-                                repo_data: res2.data
-                            }
-                        );
-                        User.save(function(err){
-                            if (err) return 'Error: Failed to Create User Profile'
-                        })
+                .then(resIssue =>{
+                    axios
+                        .get('https://api.github.com/user/repos', {headers:
+                        {
+                            "Authorization":"token " + `${gitToken[0]}`,
+                        }
                     })
+                        .then((res2)=>{
+                            console.log(resIssue.data)
+                            const User = new UserData(
+                                {
+                                    user: resUser.data.login,
+                                    user_image: resUser.data.avatar_url,
+                                    session_id: USRCDE,
+                                    bio: resUser.data.bio,
+                                    followers: resUser.data.followers,
+                                    following: resUser.data.following,
+                                    public_repos: resUser.data.public_repos,
+                                    private_gists: resUser.data.private_gists,
+                                    owned_private_repos: resUser.data.owned_private_repos,
+                                    disk_usage: resUser.data.disk_usage,
+                                    repo_data: res2.data,
+                                    issue_data: resIssue.data
+                                }
+                            );
+                            User.save(function(err){
+                                if (err) return 'Error: Failed to Create User Profile'
+                            })
+                        })
+            })
+            
                     .catch((err)=>console.log(err))
             })
             .catch((err)=>console.log(err))
@@ -136,7 +146,7 @@ mongoose.connect(db)
 let userRouter = express.Router({ mergeParams : true })
 userRouter.get('/', (req,res)=>{
     async function getData(){
-        const data = await UserData.find({user:req.params.username}).then((err, result)=>{
+        const data = await UserData.find({session_id:req.params.session}).then((err, result)=>{
             if (err) return err;
             return result;
         })
@@ -145,7 +155,7 @@ userRouter.get('/', (req,res)=>{
     }
     getData()
 })
-app.use('/user/:username', userRouter)
+app.use('/user/:session', userRouter)
 
     const port = process.env.PORT || 5000;
     app.listen(port,  ()=>{

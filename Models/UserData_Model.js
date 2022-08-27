@@ -44,6 +44,9 @@ const UserData_Schema = new Schema({
     },
     repo_data:{
         type: "Mixed",
+    },
+    issue_data: {
+        type: "Mixed", 
     }
 })
 
