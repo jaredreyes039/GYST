@@ -60,7 +60,7 @@ app.get('/auth-req-callback', async (req,res)=>{
         )
     .then((res)=> parseQuery(res.data))
     .then((data)=>{
-        res.redirect('http://localhost:3000')
+        res.redirect('http://localhost:3000/app')
         gitToken.push(data.access_token)
     })
     .finally(()=>{
@@ -86,27 +86,45 @@ app.get('/auth-req-callback', async (req,res)=>{
                             "Authorization":"token " + `${gitToken[0]}`,
                         }
                     })
-                        .then((res2)=>{
-                            console.log(resIssue.data)
-                            const User = new UserData(
-                                {
-                                    user: resUser.data.login,
-                                    user_image: resUser.data.avatar_url,
-                                    session_id: USRCDE,
-                                    bio: resUser.data.bio,
-                                    followers: resUser.data.followers,
-                                    following: resUser.data.following,
-                                    public_repos: resUser.data.public_repos,
-                                    private_gists: resUser.data.private_gists,
-                                    owned_private_repos: resUser.data.owned_private_repos,
-                                    disk_usage: resUser.data.disk_usage,
-                                    repo_data: res2.data,
-                                    issue_data: resIssue.data
-                                }
-                            );
-                            User.save(function(err){
-                                if (err) return 'Error: Failed to Create User Profile'
-                            })
+                        .then(async (res2)=>{
+                            const getUser = await UserData.findOne({session_id: USRCDE})
+                            if(!getUser){
+                                const User = new UserData(
+                                    {
+                                        user: resUser.data.login,
+                                        user_image: resUser.data.avatar_url,
+                                        session_id: USRCDE,
+                                        bio: resUser.data.bio,
+                                        followers: resUser.data.followers,
+                                        following: resUser.data.following,
+                                        public_repos: resUser.data.public_repos,
+                                        private_gists: resUser.data.private_gists,
+                                        owned_private_repos: resUser.data.owned_private_repos,
+                                        disk_usage: resUser.data.disk_usage,
+                                        repo_data: res2.data,
+                                        issue_data: resIssue.data
+                                    }
+                                );
+                                User.save(function(err){
+                                    if (err) return 'Error: Failed to Create User Profile'
+                                })
+                            }
+                            else{
+                                getUser.update({
+                                        user: resUser.data.login,
+                                        user_image: resUser.data.avatar_url,
+                                        session_id: USRCDE,
+                                        bio: resUser.data.bio,
+                                        followers: resUser.data.followers,
+                                        following: resUser.data.following,
+                                        public_repos: resUser.data.public_repos,
+                                        private_gists: resUser.data.private_gists,
+                                        owned_private_repos: resUser.data.owned_private_repos,
+                                        disk_usage: resUser.data.disk_usage,
+                                        repo_data: res2.data,
+                                        issue_data: resIssue.data
+                                })
+                            }
                         })
             })
             

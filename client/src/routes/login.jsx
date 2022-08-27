@@ -22,11 +22,10 @@ export default function Login(){
                     <li>User Data (name, bio, avatar, followers/following, public/private repo counts, private gist count, & disk usage)</li>
                     <li>Repo Data (See <a href = "https://docs.github.com/en/rest/repos/repos">https://docs.github.com/en/rest/repos/repos</a> regarding repository data collected from the API)</li>
                     <li>Issue Data (See <a href = "https://docs.github.com/en/rest/issues/issues">https://docs.github.com/en/rest/issues/issues</a> regarding issue data tcollected from the API)</li>
-                    <li>For a more thorough, clear, and concise report, please visit our <a href = '#'>Terms of Service Agreement</a></li>
                 </ul>
             </p>
             <p className='disclaimer'>{`Github is not involved, nor in anyway responsible for this site, the tools provided, nor the data collected.
-            \n Not sponsored by Github`}
+            \n Not sponsored by Github \n Use this site at your own risk. GetYourGitTogether V.1.0.0-Beta is not designed for secure public use, and we are not responsible for any damages that may arise from using this app.`}
             </p>
         </div>
     )

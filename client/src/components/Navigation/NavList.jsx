@@ -7,7 +7,7 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 export default function NavList(){
     return(
         <ul className = 'nav-list'>
-            <li className='active'><GitHubIcon/></li>
+            <li className='active'><CabinIcon/></li>
         </ul>
     )
 }
