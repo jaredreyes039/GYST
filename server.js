@@ -30,12 +30,12 @@ app.use(cookieParser());
 // app.use('/gitdata', gitRouter)
 // app.use('/gitdatauser', gituserrouter)
 let gitToken = [];
+let USRCDE = uuid.v4()
 
 app.get('/auth-req', (req,res)=>{
     res.redirect('https://github.com/login/oauth/authorize?client_id=ecb7c28dbb054b477bb7&scope=user%20repo');
 });
-app.get('/auth-req-callback', async (req,res)=>{
-    let USRCDE = uuid.v4()
+app.get('/auth-req-callback', (req,res)=>{
     const code = req.query.code;
     const client_id = "ecb7c28dbb054b477bb7";
     const client_secret = "79f47986df6ad49f76b8613698fb0bf58da07cf7";
@@ -53,8 +53,9 @@ app.get('/auth-req-callback', async (req,res)=>{
         }
         return query;
     }
+    res.cookie("USRCDE", USRCDE)
 
-    await axios
+    axios
     .post(
         `https://github.com/login/oauth/access_token?client_id=${client_id}&client_secret=${client_secret}&code=${code}&scope=user%20repo`, body
         )
@@ -87,7 +88,7 @@ app.get('/auth-req-callback', async (req,res)=>{
                         }
                     })
                         .then(async (res2)=>{
-                            const getUser = await UserData.findOne({session_id: USRCDE})
+                            const getUser = await UserData.findOne({user: resUser.data.login})
                             if(!getUser){
                                 const User = new UserData(
                                     {
@@ -110,7 +111,7 @@ app.get('/auth-req-callback', async (req,res)=>{
                                 })
                             }
                             else{
-                                getUser.update({
+                                UserData.findOneAndUpdate({user: resUser.data.login},{
                                         user: resUser.data.login,
                                         user_image: resUser.data.avatar_url,
                                         session_id: USRCDE,
@@ -123,7 +124,7 @@ app.get('/auth-req-callback', async (req,res)=>{
                                         disk_usage: resUser.data.disk_usage,
                                         repo_data: res2.data,
                                         issue_data: resIssue.data
-                                })
+                                }, {new: true}).then((result)=>{result.save()})
                             }
                         })
             })
@@ -163,6 +164,7 @@ mongoose.connect(db)
 // Server Init
 let userRouter = express.Router({ mergeParams : true })
 userRouter.get('/', (req,res)=>{
+    
     async function getData(){
         const data = await UserData.find({session_id:req.params.session}).then((err, result)=>{
             if (err) return err;
