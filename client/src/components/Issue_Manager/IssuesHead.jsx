@@ -7,9 +7,10 @@ export default function IssuesHead(){
     const [repoList, setRepoList] = useState([])
 
     const fetchgit = async () => {
-        fetch (`http://localhost:5000/user/jaredreyes039`)
+        let fetchData = await fetch (`http://localhost:5000/user/jaredreyes039`)
             .then(res=>res.json())
-            .then(data=>{setGitData(data);console.log(data)})
+            .then(data=>{return(data)})
+        setGitData(fetchData)
     }
 
     useEffect(()=>{

@@ -10,25 +10,18 @@ import RepoTableContainer from "./components/Repo_Tracking_Table/RepoTableContai
 import './styles/app_styles/app.scss'
 
 function App() {
-  window.localStorage.setItem("Refresh_Frame", false)
-  if(!window.localStorage.getItem("Refresh_Frame")){
-    window.location.reload()
-    window.localStorage.setItem("Refresh_Frame", true)
-  }
-  setInterval(()=>{
-    window.localStorage.clear()
-  }, 2500)
+
   return (
     <div className="App">
       <NavBarContainer />
       <div className="App-inner">
-      <RepoTableContainer />
       <PrivPubBlock />
       <FollowStatusBlock />
       <HeaderBlock />
       <GistBlock />
       <DiskUsage />
       <IssuesContainer />
+      <RepoTableContainer />
       </div>
     </div>
   );

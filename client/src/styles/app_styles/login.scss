@@ -5,70 +5,59 @@
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    background: radial-gradient(circle at 0% 0%, $DB2 0%, $DB2 10%, transparent 10%, transparent 100%),
-                radial-gradient(circle at 0% 0%, black 0%, black 13%, transparent 13%, transparent 100%),
-                radial-gradient(circle at 0% 0%, $Purp1 0%, $Purp1 23%, transparent 13%, transparent 100%),
-                    radial-gradient(circle at 100% 100%, black 0%, black 10%, transparent 10%, transparent 100%),
-                radial-gradient(circle at 100% 100%, $DB2 0%, $DB2 13%, transparent 13%, transparent 100%),
-                radial-gradient(circle at 100% 100%, $Purp1 0%, $Purp1 23%, $DB1 13%, $DB1 100%)
-                ;
-    font-size: 1.5em;
-    line-height: 2em;
-    h1{
-        margin-bottom: 2.5%;
-        color: $DB2;
-    }
-    p{
-        margin-bottom: 2.5%;
-        color: $DB2 !important;
-        &:nth-of-type(3){
-            font-size: 0.75em;
-            
-        }
-    }
+    background-color: whitesmoke;
     .disclaimer{
         width: 50%;
         color: $Purp1 !important;
     }
-
+    h1{
+        opacity: 0;
+        margin-bottom: 2.5%;
+        &:last-of-type{
+            margin-bottom: 5%;
+        }
+        animation: FadeIn 1000ms ease-in-out 50ms forwards; 
+        &:nth-of-type(2){
+            animation-delay: 150ms;
+        }
+        &:nth-of-type(3){
+            animation-delay: 250ms;
+        }
+        &:nth-of-type(4){
+            animation-delay: 350ms;
+        }
+    }
     ul{
         list-style: georgian;
-        font-size: 0.85em;
+        font-size: 0.5em;
     }
     .login-link{
+        opacity: 0;
+        width: fit-content;
         text-decoration: none;
-        padding-top: .25%;
-        padding-bottom: .25%;
-        padding-left: 5%;
-        padding-right: 5%;
-        border-radius: 15px;
-        background-color: white;
-        margin-bottom: 5%;
-        color: $DB2 !important;
-        transition: all 250ms ease-in-out;
-        animation: 500ms ease-in-out Bounce infinite alternate;
-        &:hover{
-            border-radius: 25px;
-            padding: 1.25%;
-        }
+        border-bottom: 2px solid red;
+        font-weight: 1000;
+        font-size: 1.5em;
+        transition: all 150ms ease-in-out;
+        padding-left: 0.5%;
+        padding-right: 0.5%;
+        text-align: center;
+        animation: FadeIn 1250ms ease-in-out 50ms forwards; 
     }
     a{
         text-decoration: none;
-        color: white;
         &:visited{
-            color: white;
+            color: inherit;
         }
         &:hover{
-            text-decoration: underline;
+            padding-left: 5%;
+            padding-right: 5%
         }
     }
 }
 
-@keyframes Bounce{
-    0%{
-        transform: translateY(0px);
-    }
+@keyframes FadeIn{
     100%{
-        transform: translateY(10px);
+        opacity: 1;
     }
 }

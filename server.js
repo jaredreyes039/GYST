@@ -2,23 +2,26 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+
 const path = require('path')
-const app = express();
-const { pipeline } = require('stream')
-const got = require('got');
+
 const UserData = require('./Models/UserData_Model')
+
 const cookieParser = require('cookie-parser')
-const { MongoClient } = require("mongodb");
 const uuid = require('uuid')
 
+// For env file
+
+require('dotenv').config()
+
+// Express Init
+
+const app = express();
 
 // Routers
 
-// const gitRouter = require('./routes/gitRoute.js')
-// const gituserrouter = require('./routes/gitUserRoute')
 const { default: axios } = require('axios');
-const { resolve } = require('path');
-const { error } = require('console');
+
 
 // Middleware
 
@@ -26,9 +29,6 @@ app.use(cors());
 app.use(bodyParser.json())
 app.use(cookieParser());
 
-
-// app.use('/gitdata', gitRouter)
-// app.use('/gitdatauser', gituserrouter)
 let gitToken = [];
 let USRCDE = uuid.v4()
 
@@ -136,21 +136,16 @@ app.get('/auth-req-callback', (req,res)=>{
 })
 
 
-// DB Config
-
-
-
-
-const db = require('./config/keys').mongoURI;
 // DB Connect
 
+const db = process.env.REACT_APP_MONGO_KEY
 
 mongoose.connect(db)
     .then(()=>{
         console.log('MongoDB Connected...')
     })
     .catch(err=>
-        console.log("Mongo Connection Not Established. Please, try again in a moment!")
+        console.log("Mongo Connection Not Established. Please, try again later!")
     );
     
 
@@ -175,11 +170,16 @@ userRouter.get('/', (req,res)=>{
     }
     getData()
 })
+
+// PrivPub, Disk, Gist, Social
+
 app.use('/user/:session', userRouter)
 
-    const port = process.env.PORT || 5000;
-    app.listen(port,  ()=>{
-        console.log(`Connected to Server on Port ${port}`);
-    })
 
-// Connection Successful!!!! :3
+// Server Est
+
+const port = process.env.PORT || 5000;
+app.listen(port,  ()=>{
+    console.log(`Connected to Server on Port ${port}`);
+})
+

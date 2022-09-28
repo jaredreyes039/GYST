@@ -1,6 +1,6 @@
 {
-  "name": "devdash",
-  "version": "1.0.0",
+  "name": "gityourshittogether",
+  "version": "2.0.0",
   "description": "",
   "main": "server.js",
   "scripts": {
@@ -12,6 +12,9 @@
   },
   "author": "Jay Reyes",
   "license": "ISC",
+  "engines": {
+    "node":"18.9.0"
+  },
   "dependencies": {
     "@octokit/oauth-app": "^4.0.6",
     "@octokit/rest": "^19.0.3",

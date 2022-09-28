@@ -20,17 +20,19 @@ export default function GistBlock(){
 
 
     const fetchgit = async () => {
-        let session = await check_cookie_name("USRCDE");
-        fetch (`http://localhost:5000/user/${session}`)
+        let session = check_cookie_name("USRCDE");
+        let fetchData = await fetch (`http://localhost:5000/user/${session}`)
             .then(res=>res.json())
-            .then(data=>{setGitData(data);console.log(data)})
+            .then(data=>{return(data)})
+        setGitData(fetchData)
+        setIsLoading(false)
+
     }
 
     
 
     useEffect(()=>{
         fetchgit();
-        setIsLoading(false)
     }, [])
 
     useEffect(()=>{
@@ -39,7 +41,6 @@ export default function GistBlock(){
             if(gitData.private_gists !== undefined){
             setGists(gitData.private_gists===0?"None":gitData.private_gists)
             }
-            else(setGists("Loading Gists..."))
         }
         else{
             setGists(err)

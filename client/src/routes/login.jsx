@@ -12,11 +12,12 @@ export default function Login(){
 
     return(
         <div style = {{height: height}} className='login-page'>
-            <h1>GetYourGitTogether</h1>
-            <h3>Let's make sense of your Github together, today!</h3>
-            <p>Made by an ADHD dev, for an ADHD dev</p>
+            <h1>Disorganized? <span style = {{color: 'red'}}>Git</span>YourSh<span style = {{color: 'red'}}>*</span>tTogether</h1>
+            <h1>Overloaded? <span style = {{color: 'red'}}>Git</span>YourSh<span style = {{color: 'red'}}>*</span>tTogether</h1>
+            <h1>Lost? <span style = {{color: 'red'}}>Git</span>YourSh<span style = {{color: 'red'}}>*</span>tTogether</h1>
+            <h1><span style = {{color: 'red'}}>Git</span>YourSh<span style = {{color: 'red'}}>*</span>tTogether</h1>
             <a className='login-link' href = "http://localhost:5000/auth-req">Log-In</a>
-            <p>GetYourGitTogether collects the following data to build your dashboard:
+            {/* <p>GetYourGitTogether collects the following data to build your dashboard:
                 <hr></hr>
                 <ul>
                     <li>User Data (name, bio, avatar, followers/following, public/private repo counts, private gist count, & disk usage)</li>
@@ -26,7 +27,7 @@ export default function Login(){
             </p>
             <p className='disclaimer'>{`Github is not involved, nor in anyway responsible for this site, the tools provided, nor the data collected.
             \n Not sponsored by Github \n Use this site at your own risk. GetYourGitTogether V.1.0.0-Beta is not designed for secure public use, and we are not responsible for any damages that may arise from using this app.`}
-            </p>
+            </p> */}
         </div>
     )
 }

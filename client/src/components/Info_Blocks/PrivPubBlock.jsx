@@ -24,14 +24,16 @@ export default function PrivPubBlock(){
 
     const fetchgit = async () => {
         let session = await check_cookie_name("USRCDE");
-        fetch (`http://localhost:5000/user/${session}`)
+        let fetchData = await fetch (`http://localhost:5000/user/${session}`)
             .then(res=>res.json())
-            .then(data=>setGitData(data))
+            .then(data=>{return(data)})
+        setGitData(fetchData)
+        setIsLoading(false)
+
     }
 
     useEffect(()=>{
         fetchgit();
-        setIsLoading(false)
     }, [])
 
     useEffect(()=>{

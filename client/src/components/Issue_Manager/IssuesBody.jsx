@@ -18,9 +18,10 @@ export default function IssuesBody(){
 
     const fetchgit = async () => {
         let session = await check_cookie_name("USRCDE");
-        fetch (`http://localhost:5000/user/${session}`)
+        let fetchData = await fetch (`http://localhost:5000/user/${session}`)
             .then(res=>res.json())
-            .then(data=>{setIssueData(data.issue_data)})
+            .then(data=>{return(data.issue_data)})
+        setIssueData(fetchData)
     }
 
     useEffect(()=>{

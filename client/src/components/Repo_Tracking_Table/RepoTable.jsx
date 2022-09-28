@@ -22,13 +22,14 @@ export default function RepoTable(){
 
     const fetchgit = async () => {
         let session = await check_cookie_name("USRCDE");
-        fetch (`http://localhost:5000/user/${session}`)
+        let fetchData = await fetch (`http://localhost:5000/user/${session}`)
             .then(res=>res.json())
-            .then(data => setGitData(data))
-            .finally(()=>setIsLoading(false))
+            .then(data => {return(data)})
+            setGitData(fetchData)
     }
     useEffect(()=>{
         fetchgit();
+        setIsLoading(false)
     }, [])
 
     useEffect(()=>{
@@ -57,7 +58,16 @@ export default function RepoTable(){
             }))
         }
         else{
-            setDispState("None")
+            setDispState(
+                <tr>
+                    <td>Loading...</td>
+                    <td>Loading...</td>
+                    <td>Loading...</td>
+                    <td>Loading...</td>
+                    <td>Loading...</td>
+                    <td>Loading...</td>
+                </tr>
+            )
         }
     }, [gitData, isLoading])
 

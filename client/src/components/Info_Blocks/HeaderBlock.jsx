@@ -24,14 +24,16 @@ export default function HeaderBlock(){
 
     const fetchgit = async () => {
         let session = await check_cookie_name("USRCDE");
-        fetch (`http://localhost:5000/user/${session}`)
+        const fetchdata = await fetch (`http://localhost:5000/user/${session}`)
             .then(res=>res.json())
-            .then(data=>{setGitData(data);console.log(data)})
+            .then(data=> {return(data)})
+        setGitData(fetchdata)
+        setIsLoading(false)
+
     }
 
     useEffect(()=>{
         fetchgit();
-        setIsLoading(false)
     }, [])
 
     useEffect(()=>{
@@ -87,7 +89,7 @@ export default function HeaderBlock(){
                 borderRadius: '15px'
             }}
         >
-            <h4>&copy; GetYourGitTogether || A Dashboard for getting your Github under control.</h4>
+            <h4>&copy; GitYourSh*tTogether || A Dashboard for getting your Github under control.</h4>
         </div>
         </InfoBlock>
         </div>
