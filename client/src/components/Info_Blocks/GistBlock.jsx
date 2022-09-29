@@ -21,7 +21,7 @@ export default function GistBlock(){
 
     const fetchgit = async () => {
         let session = check_cookie_name("USRCDE");
-        let fetchData = await fetch (`http://localhost:5000/user/${session}`)
+        let fetchData = await fetch (`/user/${session}`)
             .then(res=>res.json())
             .then(data=>{return(data)})
         setGitData(fetchData)

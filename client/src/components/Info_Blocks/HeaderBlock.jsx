@@ -24,7 +24,7 @@ export default function HeaderBlock(){
 
     const fetchgit = async () => {
         let session = await check_cookie_name("USRCDE");
-        const fetchdata = await fetch (`http://localhost:5000/user/${session}`)
+        const fetchdata = await fetch (`/user/${session}`)
             .then(res=>res.json())
             .then(data=> {return(data)})
         setGitData(fetchdata)

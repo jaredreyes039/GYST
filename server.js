@@ -61,7 +61,7 @@ app.get('/auth-req-callback', (req,res)=>{
         )
     .then((res)=> parseQuery(res.data))
     .then((data)=>{
-        res.redirect('http://localhost:3000/app')
+        res.redirect('/app')
         gitToken.push(data.access_token)
     })
     .finally(()=>{

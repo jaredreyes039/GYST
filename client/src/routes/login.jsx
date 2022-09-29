@@ -16,7 +16,7 @@ export default function Login(){
             <h1>Overloaded? <span style = {{color: 'red'}}>Git</span>YourSh<span style = {{color: 'red'}}>*</span>tTogether</h1>
             <h1>Lost? <span style = {{color: 'red'}}>Git</span>YourSh<span style = {{color: 'red'}}>*</span>tTogether</h1>
             <h1><span style = {{color: 'red'}}>Git</span>YourSh<span style = {{color: 'red'}}>*</span>tTogether</h1>
-            <a className='login-link' href = "http://localhost:5000/auth-req">Log-In</a>
+            <a className='login-link' href = "/auth-req">Log-In</a>
             {/* <p>GetYourGitTogether collects the following data to build your dashboard:
                 <hr></hr>
                 <ul>
