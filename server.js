@@ -149,13 +149,6 @@ mongoose.connect(db)
     );
     
 
-    if(process.env.NODE_ENV === 'production'){
-        app.use(express.static(("client/build")))
-        app.get('/', (req, res)=>{
-            res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-        })
-    }
-
 // Server Init
 let userRouter = express.Router({ mergeParams : true })
 userRouter.get('/', (req,res)=>{
@@ -182,4 +175,11 @@ const port = process.env.PORT || 5000;
 app.listen(port,  ()=>{
     console.log(`Connected to Server on Port ${port}`);
 })
+
+if(process.env.NODE_ENV === 'production'){
+    app.use(express.static(("client/build")))
+    app.get('*', (req, res)=>{
+        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+    })
+}
 
