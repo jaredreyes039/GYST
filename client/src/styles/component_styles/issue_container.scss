@@ -1,0 +1,313 @@
+@import '../app_styles/global.scss';
+
+// ISSUES
+// Issue Container
+// Issue (in Issue Container)
+.issue-container{
+    @include ScrollKit;
+    background-color: $White2;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    min-width: 270px;
+    max-width: 720px;
+    width: 37.5%;
+    min-height: 540px;
+    height: 540px;
+    max-height: 540px;
+    margin: 24px;
+    padding: 16px;
+    border-radius: 4px;
+    box-shadow: 2px 2px 20px 1px #00000025, -2px -2px 20px 5px #00000025;
+    transition: all 150ms ease-in-out;
+    &:hover{
+        transform: scale(1.025);
+        box-shadow: 2px 2px 20px 1px #00000050, -2px -2px 20px 5px #00000050;
+    }
+    ul  {
+        list-style: none;
+    }
+}
+.issue{
+    font-family: sans-serif !important;
+    display: flex;
+    flex-direction: column;
+    background-color: $White1;
+    border-radius: 4px;
+    color: $Purp1;
+    margin-top: 24px;
+    margin-bottom: 24px;
+    padding: 16px;
+    transition: all 150ms ease-in-out;
+    & .issue-title{
+        font-size: 1.5rem !important;
+        text-decoration: none;
+        border-bottom: 2px solid #e74c3c;
+        margin-bottom: 8px;
+    }
+    & .assignees{
+        margin-bottom: 8px;
+    }
+    & h1{
+        font-size: 1.35rem ; 
+        text-decoration: underline;
+        margin-bottom: 8px;
+    }
+    & h2{
+        font-size: 1.25rem;
+        margin-bottom: 8px;
+    }
+    & h3{
+        font-size: 1.15rem;
+    }
+    & li {
+        margin-bottom: 8px;
+        &::before{
+            content:"\2192  ";
+            color: #e74c3c;
+        }
+    }
+    &:hover{
+        filter: brightness(1.25);
+        padding: 24px;
+        cursor: pointer;
+        &:after{
+            content: " \bb \ View " attr(title) "...";
+            font-size: 0.75rem;
+            position: absolute;
+            bottom: 4px;
+            right: 8px;
+        }
+    }
+}
+
+// Issue Modal
+.issue-modal{
+    @include modal;
+    .issue-title{
+        width: 90% !important;
+        border-bottom: 2px solid $Red1 !important;
+        margin-bottom: 8px;
+        margin-top: 16px;
+        font-size: 1.5rem !important;
+        text-decoration: none;
+        text-align: center;
+    }
+    ul  {
+        list-style: none;
+    }
+    h1{
+        font-size: 1.35rem; 
+        margin-bottom: 8px;
+        margin-top: 8px;
+    }
+    h2{
+        font-size: 1.25rem;
+        margin-bottom: 8px;
+        margin-top: 8px;
+    }
+    .label{
+        text-decoration: underline;
+    }
+    h3{
+        font-size: 1.15rem;
+        margin-bottom: 8px;
+        margin-top: 8px;
+    }
+    li {
+        margin-bottom: 8px;
+        margin-top: 8px;
+        &::before{
+            content:"\2192  ";
+            color: $Red1;
+        }
+    }
+    &:hover{
+        background-color: $White2;
+    }
+    .issue-body{
+        background-color: $White3;
+        padding: 24px;
+        margin-bottom: 24px;
+        border-radius: 4px;
+    }
+    
+    .comments-container{
+        & ul {
+            & .comment > div {
+                background-color: $White3;
+                border-radius: 4px;
+                &::before{
+                    content: "";
+                }
+            }
+            & .comment {
+                transition: all 150ms ease-in-out;
+                &:hover{
+                    padding: 8px;
+                }
+                &::before{
+                    content: "";
+                }
+            }
+        }
+        .comment-body{
+            padding: 24px;
+            min-height: 180px;
+        }
+        .comment-reactions{
+        display: flex;
+        justify-content: end;
+        position: relative;
+        bottom: 8px;
+        & li{
+            background-color: $White3;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            margin-right: 16px;
+            border-radius: 4px;
+            box-shadow: 2px 3px 10px 1px #00000050;
+            transition: all 150ms ease-in-out;
+            & p {
+                display: none;
+            }
+            &::before{
+                content: unset;
+            }
+            &:hover{
+                cursor: default;
+                filter: brightness(1.05);
+                box-shadow: 3px 5px 15px 5px #00000050;
+                &:after{
+                    content: "" attr(rxn_count) "";
+                    opacity: 0;
+                    animation: fadeIn 150ms ease-in-out forwards;
+                    position: absolute;
+                    top: -24px;
+                }
+            }
+        }
+        }
+    }
+    .reactions{
+        display: flex;
+        justify-content: space-evenly;
+        margin-bottom: 16px;
+        & li{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: $White3;
+            width: 75px;
+            aspect-ratio: 1;
+            border-radius: 4px;
+            box-shadow: 2px 3px 10px 1px #00000050;
+            transition: all 150ms ease-in-out;
+            & div{
+                display: flex;
+                align-items: center;
+                margin-bottom: 8px;
+            }
+            &::before{
+                content: unset;
+            }
+            &:hover{
+                filter: brightness(1.05);
+                cursor: default;
+                box-shadow: 3px 5px 15px 5px #00000050;
+                &:after{
+                    content: "" attr(reaction_type) "";
+                    font-size: 0.75rem;
+                    opacity: 0;
+                    animation: fadeIn 150ms ease-in-out forwards;
+                }
+            }
+        }
+    }
+
+    .close-modal{
+        background-color: $Red1;
+        position: absolute;
+        right: 12px;
+        top: 12px;
+        aspect-ratio: 1;
+        padding: 8px 12px 8px 12px;
+        border: none;
+        border-radius: 50%;
+        color: $White3;
+        transition: all 150ms ease-in-out;
+        &:hover{
+            cursor: pointer;
+            transform: scale(1.25);
+        }
+    }
+}
+
+.user-post-data{
+    background-color: $Purp1;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    padding: 12px;
+    color: $White3;
+    font-size: 1.1rem;
+    & p {
+        margin-bottom: 4px;
+    }
+    & img {
+        width: 96px;
+        height: 96px;
+        border-radius: 50%;
+        margin-right: 24px;
+    }
+    .username{
+        font-weight: 750;
+        text-decoration: underline;
+    }
+    .created, .association, .comment-reactions-count, .state{
+        font-size: 0.95rem;                
+    }
+}
+.issue-body-container{
+    transition: all 150ms ease-in-out;
+    &:hover{
+        padding: 4px;
+        filter: brightness(1.05);
+    }
+}
+
+// Issue List Modal
+.issue-list-modal{
+    @include modal;
+    .issue-container {
+        margin: 0px;
+        width: 100%;
+        max-height: inherit;
+        min-height: inherit;
+        height: inherit;
+        box-shadow: none;
+
+        & h1:first-of-type {
+            width: 100%;
+        }
+        & h1,h2,h3 {
+            text-decoration: none;
+        }
+        &:hover{
+            transform: none;
+            box-shadow: none;
+        }
+        & .issue {
+            &:hover{
+                transform: none;
+                background-color: initial;
+                padding: 32px;
+                filter: brightness(1.05);
+            }
+        }
+    }
+}

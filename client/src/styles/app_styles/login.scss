@@ -1,0 +1,90 @@
+@import '../app_styles/global.scss';
+
+// Login Page
+.login-overlay {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(5px) grayscale(1);
+}
+.login-container {
+    display: flex;
+    flex-direction: column;
+    background-color: #010101;
+    padding: 64px;
+    border-radius: 4px;
+    align-items: center;
+    width: 100%;
+    & svg {
+        margin-bottom: 64px;
+        transform: scale(2);
+    }
+    & p {
+        width: 66%;
+        color: $White2;
+        margin-bottom: 32px;
+        font-size: 1.25rem;
+    }
+}
+.login-page{
+    background-image: url("https://dl.dropboxusercontent.com/s/qlrofz8xqku0035/GYST.gif?dl=0");
+    background-size:  cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+    & .disclaimer{
+        width: 50%;
+        color: $Purp1 !important;
+    }
+
+    & h1{
+        opacity: 0;
+        margin-bottom: 2.5%;
+        color: $Purp1;
+        animation: FadeIn 1000ms ease-in-out 50ms forwards; 
+        &:last-of-type{
+            margin-bottom: 5%;
+        }
+
+        // Delays
+
+        &:nth-of-type(2){
+            animation-delay: 150ms;
+        }
+        &:nth-of-type(3){
+            animation-delay: 250ms;
+        }
+        &:nth-of-type(4){
+            animation-delay: 350ms;
+        }
+    }
+
+    & .login-link{
+        opacity: 0;
+        width: fit-content;
+        padding-left: 0.5%;
+        padding-right: 0.5%;
+        border-bottom: 2px solid $Red1;
+        font-weight: 1000;
+        font-size: 1.5em;
+        text-align: center;
+        text-decoration: none;
+        transition: all 150ms ease-in-out;
+        animation: FadeIn 1250ms ease-in-out 50ms forwards; 
+    }
+    & a{
+        text-decoration: none;
+        color: #ffffff;
+        &:visited{
+            color: #ffffff;
+        }
+        &:hover{
+            padding-left: 5%;
+            padding-right: 5%
+        }
+    }
+}

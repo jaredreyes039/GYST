@@ -1,0 +1,201 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Orbitron', sans-serif;
+}
+
+body {
+    background-color: #202020;
+}
+
+// Var Declarations
+// Color Palette
+$DB1: #000000;
+$Purp1: #2c3e50;
+$Purp2: #0b5394;
+$Red1:#e74c3c;
+$Gray1: #333333;
+$White1: #f1f1f1;
+$White2: #f9f9f9;
+$White3: #e0e8ee;
+
+// Mixins
+@mixin ScrollKit {
+    &::-webkit-scrollbar{
+        background-color: #000000;
+        width: 0.5em;
+    }
+    
+    &::-webkit-scrollbar-track{
+        background-color: transparent;
+    }
+    &::-webkit-scrollbar-thumb{
+        background-color: #ff7474;
+    }
+}
+@mixin modal{
+    overflow-x: hidden;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    background-color: $White2;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 720px;
+    width: 50%;
+    min-width: 336px;
+    aspect-ratio: 1/1.1;
+    border-radius: 4px;
+    box-shadow: 2px 2px 20px 1px #00000050, -2px -2px 20px 5px #00000050;
+    transition: all 150ms ease-in-out;
+    animation: slideIn 500ms ease-in-out forwards;
+    & h1:first-of-type{
+        align-self: center;
+        width: 75%;
+    }
+}
+
+// Animations
+@keyframes slideIn{
+    0%{
+        top: -1000px;
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+@keyframes fadeIn{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+@keyframes FadeIn{
+    100%{
+        opacity: 1;
+    }
+}
+
+// RESP
+// 1500px W
+// 806px W
+// 560px W
+// 420px W
+// 370px W
+
+@media screen and (max-width: 1500px) {
+    .App {
+        padding: 0px;
+    }
+    .App-overlay{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0px;
+        padding: 0px;
+    }
+    .logo{
+        width: 15%;
+        max-width: 240px;
+        min-width: 172px;
+    }
+    .top-row{
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    .bottom-row{
+        flex-wrap: wrap;
+        & .issue-container{
+            width: 100%;
+            max-width: 100%;
+        }
+    }
+    .info-container{
+        height: 320px;
+        max-height: 320px;
+        height: 100%;
+        min-height: 240px;
+        margin: 2.5% 1.25% 2.5% 1.25%;
+        width: 15%;
+        max-width: 240px;
+        min-width: 172px;
+    }
+    .repo-table-container{
+        width: 100%;
+        min-width: 240px;
+        max-width: 100%;
+    }
+    .table-overlay{
+        width: 100%;
+        min-width: 240px;
+        max-width: 100%;
+    }
+    
+}
+
+
+@media screen and (max-width: 806px) {
+    .logo{
+        display: none;
+    }
+    .App{
+        display: unset;
+    }
+    .App-inner{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+    .repo-table-main{
+        min-height: fit-content !important;
+        padding-bottom: 3.5%;
+    }
+    .info-container{
+        width: 30%;
+    }
+    .table-overlay{
+        margin: 16px;
+    }
+    .issue-modal{
+        .reactions {
+            flex-wrap: wrap;
+            & li {
+                margin: 16px 1.25% 16px 1.25%;
+                width: 64px !important;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 560px){
+    .info-container{
+        width: 47.5%;
+    }
+    .bottom-row{
+        display: none
+    }
+}
+
+@media screen and (max-width:420px) {
+    .login-page {
+        text-align: center;
+        & h1 {
+            margin-bottom: 24px;
+        }
+    }
+}
+
+@media screen and (max-width: 370px) {
+    .top-row{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+

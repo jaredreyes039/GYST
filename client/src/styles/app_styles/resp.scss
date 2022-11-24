@@ -1,0 +1,100 @@
+@media screen and (max-width: 1500px) {
+    .App {
+        padding: 0px;
+    }
+    .App-overlay{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0px;
+        padding: 0px;
+    }
+    .logo{
+        width: 15%;
+        max-width: 240px;
+        min-width: 172px;
+    }
+    .top-row{
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    .bottom-row{
+        flex-wrap: wrap;
+        & .issue-container{
+            width: 100%;
+            max-width: 100%;
+        }
+    }
+    .info-container{
+        height: 320px;
+        max-height: 320px;
+        height: 100%;
+        min-height: 240px;
+        margin: 2.5% 1.25% 2.5% 1.25%;
+        width: 15%;
+        max-width: 240px;
+        min-width: 172px;
+    }
+    .repo-table-container{
+        width: 100%;
+        min-width: 240px;
+        max-width: 100%;
+    }
+    .table-overlay{
+        width: 100%;
+        min-width: 240px;
+        max-width: 100%;
+    }
+    
+}
+
+
+@media screen and (max-width: 806px) {
+    .logo{
+        display: none;
+    }
+    .App{
+        display: unset;
+    }
+    .App-inner{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+    .repo-table-main{
+        min-height: fit-content !important;
+        padding-bottom: 3.5%;
+    }
+    .info-container{
+        width: 30%;
+    }
+    .table-overlay{
+        margin: 16px;
+    }
+
+}
+
+@media screen and (max-width: 560px){
+    .info-container{
+        width: 47.5%;
+    }
+    .bottom-row{
+        display: none
+    }
+}
+
+@media screen and (max-width:420px) {
+    .login-page {
+        text-align: center;
+        & h1 {
+            margin-bottom: 24px;
+        }
+    }
+}
+
+@media screen and (max-width: 370px) {
+    .top-row{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
