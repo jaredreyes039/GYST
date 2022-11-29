@@ -94,6 +94,7 @@ export default function Login(){
                             for yourself how much simpler it gets from here- your Github can finally be organized again!
                         </p>
                         <a href="https://gityourshittogether.herokuapp.com/auth-req">Log-in With Github</a>
+                        <div className='disclaimer'>
                         <h2>Terms of Service</h2>
                         <p>
                             By logging in with Github you agree to GitYourShitTogether's terms of service.
@@ -115,6 +116,8 @@ export default function Login(){
                             We do not, and will not, sell/share any of your data with third-parties. We value your privacy
                             and productivity!
                         </p>
+                        <p>&copy;GitYourShitTogether 2022</p>
+                        </div>
                     </div>
                 </section>
         </div>

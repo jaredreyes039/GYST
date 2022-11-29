@@ -30,7 +30,7 @@
         background-color: #ff5757;
         border-radius: 4px;
         text-decoration: none;
-        color: #f3f3f3;
+        color: #FFAB57;
         padding: 12px;
         transition: opacity 100ms ease-in-out;
         &:hover {
@@ -162,19 +162,12 @@
         margin-bottom: 24px;
     }
     & p {
-        font-size: 1.5rem;
         width: 66%;
         margin-bottom: 24px;
         &:first-of-type {
-            margin-bottom: 48px
+            margin-bottom: 48px;
+            font-size: 1.5rem;
         }
-    }
-    & h2 {
-        margin-bottom: 24px;
-        font-size: 2.5rem;
-    }
-    & ul {
-        font-size: 1.25rem;
     }
     & a {
         background-color: #ff5757;
@@ -186,7 +179,23 @@
         transition: opacity 100ms ease-in-out;
         margin-bottom: 48px;
         &:hover {
-            opacity: 0.95;
+            opacity: 0.9;
+        }
+    }
+    .disclaimer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        & p {
+            font-size: inherit;
+            margin-bottom: 24px;
+        }
+        & h2 {
+            margin-bottom: 24px;
+            color: #ff5757;
+        }
+        & ul {
+            padding-left: 5%;
         }
     }
 }
@@ -220,6 +229,77 @@
     .login-header {
         & img {
             width: 75%;
+        }
+    }
+}
+
+@media  screen and (max-width: 1024px) {
+    .about-box {
+        margin-bottom: 24px;
+    }
+}
+
+@media  screen and (max-width: 500px) {
+   .navbar {
+    flex-direction: column;
+    padding-bottom: 24px;
+   }
+   .login-header {
+    min-height: unset;
+     & .header-text-backdrop {
+        display: none;
+     }
+     & img {
+        width: 100%;
+        height: 360px;
+     }
+   } 
+   .about-section {
+    padding: 12px;
+   }
+   .about-box {
+    margin-bottom: 12px;
+    gap: 2rem;
+    & ul {
+        text-align: left;
+    }
+    & p {
+        margin-bottom: 12px;
+    }
+   }
+   .get-started-box {
+    padding: 12px;
+    & p {
+        width: 100%;
+        text-align: justify;
+    }
+
+    & .disclaimer {
+        padding: 12px;
+        & ul {
+            text-align: left;
+        }
+    }
+   }
+}
+
+@media  screen and (max-width: 300px) {
+    .about-section {
+        padding: 4px;
+    }
+    .about-box {
+        text-align: left;
+        & p {
+            text-align: left;
+        }
+        & ul {
+            padding: 0px;
+            font-size: 1.15rem;
+        }
+    }
+    .get-started-box {
+        & h1 {
+            font-size: 3rem;
         }
     }
 }
