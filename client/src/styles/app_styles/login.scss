@@ -1,90 +1,204 @@
-@import '../app_styles/global.scss';
+@import './global.scss';
 
-// Login Page
-.login-overlay {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    backdrop-filter: blur(5px) grayscale(1);
+.login-page {
+    background-color: #f3f3f3;
+    font-family: 'Bebas Neue', cursive;
+
 }
-.login-container {
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px;
+}
+.navbar-brand {
+    & h1 {
+        color: #010101;
+    }
+}
+.red-text {
+    color: #ff5757;
+}
+.yellow-text {
+    color: #ff5757;
+}
+
+.navbar-links {
+    & a {
+        background-color: #ff5757;
+        border-radius: 4px;
+        text-decoration: none;
+        color: #f3f3f3;
+        padding: 12px;
+        transition: opacity 100ms ease-in-out;
+        &:hover {
+            opacity: 0.95;
+        }
+    }
+}
+
+.login-header {
+    background-color: #010101;
+    min-height: 720px;
+    padding: 24px;
+    display: flex;
+    & img {
+        width: 40%;
+    }
+}
+
+.header-text-backdrop {
+    background-color: #FFAB57;
+    width: 25%;
+    min-height: 480px;
+}
+
+.header-text {
+    width: fit-content;
+    padding-top: 4rem;
+    padding-left: 6rem;
+    & h1 {
+        color: #f3f3f3;
+        font-size: 5rem;
+    }
+    & h2 {
+        color: #f3f3f395;
+        font-size: 2.5rem;
+
+    }
+    & h3 {
+        color: #f3f3f385;
+        font-size: 1.25rem;
+
+    }
+}
+
+.about-section {
+    min-height: 480px;
     display: flex;
     flex-direction: column;
-    background-color: #010101;
-    padding: 64px;
-    border-radius: 4px;
     align-items: center;
-    width: 100%;
-    & svg {
-        margin-bottom: 64px;
-        transform: scale(2);
+    padding: 24px;
+    & h1 {
+        font-size: 5rem;
+    }
+    & hr {
+        width: 66%;
+        margin-bottom: 24px;
+        background-color: #ff57ab;
     }
     & p {
-        width: 66%;
-        color: $White2;
-        margin-bottom: 32px;
         font-size: 1.25rem;
     }
 }
-.login-page{
-    background-image: url("https://dl.dropboxusercontent.com/s/qlrofz8xqku0035/GYST.gif?dl=0");
-    background-size:  cover;
+
+.about-box {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    gap: 5rem;
+    align-items: center;
+    & hr {
+        width: 100%;
+    }
+    & h2 {
+        font-size: 2.5rem;
+        margin-bottom: 24px;
+    }
+    & div {
+        width: 75%;
+        line-height: 2rem;
+    }
+    & p {
+        font-size: 1.5rem;
+        margin-bottom: 24px;
+        text-align: justify;
+    }
+    & ul {
+        font-size: 1.5rem;
+        padding-left: 48px;
+    }
+    &:nth-of-type(2n){
+        flex-direction: row-reverse;
+        .image-backdrop {
+            & img {
+                padding: 0px;
+                position: relative;
+                top: 10%;
+                right: 5%;
+            }
+        }
+    }
+    &:nth-of-type(3n){
+        .image-backdrop {
+            & img {
+                padding: 0px;
+                position: unset;
+            }
+        }
+    }
+}
+
+.image-backdrop {
+    width: 33%;
+    height: 480px;
+    content: "";
+    border-radius: 4px;
+    & img {
+        padding-left: 72px;
+
+    }
+}
+
+.get-started-box {
+    padding: 24PX;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    overflow: hidden;
-
-    & .disclaimer{
-        width: 50%;
-        color: $Purp1 !important;
+    & h1 {
+        font-size: 5rem;
+        margin-bottom: 24px;
     }
-
-    & h1{
-        opacity: 0;
-        margin-bottom: 2.5%;
-        color: $Purp1;
-        animation: FadeIn 1000ms ease-in-out 50ms forwards; 
-        &:last-of-type{
-            margin-bottom: 5%;
-        }
-
-        // Delays
-
-        &:nth-of-type(2){
-            animation-delay: 150ms;
-        }
-        &:nth-of-type(3){
-            animation-delay: 250ms;
-        }
-        &:nth-of-type(4){
-            animation-delay: 350ms;
+    & p {
+        font-size: 1.5rem;
+        width: 66%;
+        margin-bottom: 24px;
+        &:first-of-type {
+            margin-bottom: 48px
         }
     }
-
-    & .login-link{
-        opacity: 0;
-        width: fit-content;
-        padding-left: 0.5%;
-        padding-right: 0.5%;
-        border-bottom: 2px solid $Red1;
-        font-weight: 1000;
-        font-size: 1.5em;
-        text-align: center;
+    & h2 {
+        margin-bottom: 24px;
+        font-size: 2.5rem;
+    }
+    & ul {
+        font-size: 1.25rem;
+    }
+    & a {
+        background-color: #ff5757;
+        border-radius: 4px;
         text-decoration: none;
-        transition: all 150ms ease-in-out;
-        animation: FadeIn 1250ms ease-in-out 50ms forwards; 
-    }
-    & a{
-        text-decoration: none;
-        color: #ffffff;
-        &:visited{
-            color: #ffffff;
-        }
-        &:hover{
-            padding-left: 5%;
-            padding-right: 5%
+        color: #FFAB57;
+        font-size: 1.5rem;
+        padding: 24px;
+        transition: opacity 100ms ease-in-out;
+        margin-bottom: 48px;
+        &:hover {
+            opacity: 0.95;
         }
     }
+}
+
+.yellow {
+    background-color: #FFAB57;
+}
+
+.pink {
+    background-color: #ff57ab;
+}
+
+.red {
+    background-color: #ff5757;
 }
