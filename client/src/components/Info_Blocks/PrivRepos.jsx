@@ -21,7 +21,7 @@ export default function PrivReposBlock(){
             <InfoBlock
             title = "Private Repos"
             data = {"..."}
-            statusColor = "#2c3e5050"
+            statusColor = ""
             statusMsg = "Loading..."
             />
             </div>
@@ -35,7 +35,7 @@ export default function PrivReposBlock(){
             <InfoBlock
             title = "Private Repos"
             data = {data.data.owned_private_repos}
-            statusColor = "#7ccc63"
+            statusColor = ""
             statusMsg = "Secured and visible to your eyes only!"
             />
             </div>
@@ -47,7 +47,7 @@ export default function PrivReposBlock(){
             <InfoBlock
             title = "Private Repos"
             data = {"Error"}
-            statusColor = "#e74c3c"
+            statusColor = ""
             statusMsg = "Failed to load private repos count."
             />
             </div>

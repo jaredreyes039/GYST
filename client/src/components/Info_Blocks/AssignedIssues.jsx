@@ -24,7 +24,6 @@ export default function AssignedIssuesBlock(){
     useEffect(()=>{
 
         if(isLoading){
-            setStatusColor("#2c3e5050")
             setStatusMsg("Loading...")
         }
 
@@ -33,24 +32,19 @@ export default function AssignedIssuesBlock(){
                 let {issue_data} = data.data
                 let issues = issue_data.length
                 if(issues >= 5 && issues < 7){
-                    setStatusColor('orange')
                     setStatusMsg("Your issues are adding up, soon not even therapy will solve this!")
                 }
                 else if (issues >= 7 ){
-                    setStatusColor("#e74c3c")
                     setStatusMsg("Uh-Oh")
                 }
                 else if (issues < 3){
-                    setStatusColor("#7ccc63")
                     setStatusMsg("Not looking too bad right now!")
                 }
                 else{
-                    setStatusColor("#f39c12")
                     setStatusMsg("There's a few issues present. Maybe give them some attention, today?")
                 }
             }}
         if(isError){
-            setStatusColor("#e74c3c")
             setStatusMsg("Failed to load assigned issues count.")
         }
     }, [isLoading, isSuccess, data, isError])

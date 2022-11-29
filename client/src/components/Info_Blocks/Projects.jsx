@@ -6,7 +6,7 @@ import { CookieParser } from "../lib/cookieParser";
 
 export default function ProjectsBlock(){
 
-    const [statusColor, setStatusColor] = useState("#FF9B9B")
+    const [statusColor, setStatusColor] = useState("")
     const [statusMsg, setStatusMsg] = useState("")
 
     const {isLoading, data, isSuccess, isError} = useQuery(['gists'], ()=>{
@@ -20,34 +20,27 @@ export default function ProjectsBlock(){
         const bounds = [3, 5, 7, 9]
 
         if(isLoading){
-            setStatusColor("#2c3e5050")
             setStatusMsg("Loading...")
         }
         if(isSuccess){
             if(data.data.project_data !== undefined){
             if(data.data.project_data.length >= 5 && data.data.project_data.length < 7){
-                setStatusColor("orange")
                 setStatusMsg("The projects are racking up, have you checked on any of them lately?")
             } else if (data.data.project_data.length < 3){
-                setStatusColor("#7ccc63")
                 setStatusMsg("Looks like you might be busy for a little while!")
             }
             else if (data.data.project_data.length > 7){
-                setStatusColor("#e74c3c")
                 setStatusMsg("Oh sh*t, you're going to be busy for a long time... you got this!")
             }
             else{
-                setStatusColor("#f39c12")
                 setStatusMsg("Your project stack is growing, maybe knock out a few tasks, today?")
             }
             if(data.data.project_data.length === 0){
-                setStatusColor("#2c3e5050")
                 setStatusMsg("No projects currently active.")
             }
         }
         }
         if (isError) {
-            setStatusColor("#e74c3c")
             setStatusMsg("Failed to load projects count.")
         }
 
@@ -59,7 +52,7 @@ export default function ProjectsBlock(){
             <InfoBlock
             title = "Active Projects"
             data = {"..."}
-            statusColor = {"#2c3e5050"}
+            statusColor = {""}
             statusMsg = {statusMsg}
             />
             </div>

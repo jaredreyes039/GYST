@@ -55,7 +55,6 @@ export default function RepoModal(props){
                 <AccountTreeIcon />
                 <p>{props.default_branch}</p>
             </div>
-            <h2 className='label'>Contents</h2>
             <div className='contents-container'>
                     <ul>
                     {data.data !== undefined? data.data.map((file)=> {return(

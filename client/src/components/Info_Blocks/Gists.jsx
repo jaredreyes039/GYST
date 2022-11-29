@@ -17,21 +17,17 @@ export default function GistsBlock(){
 
     useEffect(()=>{
         if(isLoading){
-            setStatusColor("#2c3e5050")
             setStatusMsg("Loading...")
         }
         if(isSuccess){
             if(data.data.private_gists === 0){
-                setStatusColor("#2c3e5050")
                 setStatusMsg("No gists currently acitve.")
             }
             else {
-                setStatusColor("#7ccc63")
                 setStatusMsg("You know what? These things are amazing for code snippets!")
             }
         }
         if(isError){
-            setStatusColor('#e74c3c')
             setStatusMsg('Failed to load gists count.')
         }
     }, [isLoading, isSuccess, data, isError])

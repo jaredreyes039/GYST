@@ -17,11 +17,9 @@
     margin: 24px;
     padding: 16px;
     border-radius: 4px;
-    box-shadow: 2px 2px 20px 1px #00000025, -2px -2px 20px 5px #00000025;
     transition: all 150ms ease-in-out;
     &:hover{
         transform: scale(1.025);
-        box-shadow: 2px 2px 20px 1px #00000050, -2px -2px 20px 5px #00000050;
     }
     ul  {
         list-style: none;
@@ -85,37 +83,37 @@
     @include modal;
     .issue-title{
         width: 90% !important;
-        border-bottom: 2px solid $Red1 !important;
-        margin-bottom: 8px;
-        margin-top: 16px;
-        font-size: 1.5rem !important;
+        border-bottom: 2px solid #ff5757 !important;
+        margin-bottom: 24px;
+        margin-top: 24px;
+        font-size: 2rem !important;
         text-decoration: none;
-        text-align: center;
     }
     ul  {
         list-style: none;
+        margin-bottom: 24px;
     }
     h1{
         font-size: 1.35rem; 
-        margin-bottom: 8px;
-        margin-top: 8px;
+        margin-bottom: 12px;
+        margin-top: 12px;
     }
     h2{
         font-size: 1.25rem;
-        margin-bottom: 8px;
-        margin-top: 8px;
+        margin-bottom: 12px;
+        margin-top: 12px;
     }
     .label{
         text-decoration: underline;
     }
     h3{
         font-size: 1.15rem;
-        margin-bottom: 8px;
-        margin-top: 8px;
+        margin-bottom: 12px;
+        margin-top: 12px;
     }
     li {
-        margin-bottom: 8px;
-        margin-top: 8px;
+        margin-bottom: 12px;
+        margin-top: 12px;
         &::before{
             content:"\2192  ";
             color: $Red1;
@@ -132,6 +130,10 @@
     }
     
     .comments-container{
+        & .user-post-data {
+            background-color: #FFAB57;
+            color: #010101;
+        }
         & ul {
             & .comment > div {
                 background-color: $White3;
@@ -224,6 +226,9 @@
                     font-size: 0.75rem;
                     opacity: 0;
                     animation: fadeIn 150ms ease-in-out forwards;
+                    position: absolute;
+                    top: 125%;
+                    color: #ff5757;
                 }
             }
         }
@@ -248,7 +253,7 @@
 }
 
 .user-post-data{
-    background-color: $Purp1;
+    background-color: #ff5757;
     display: flex;
     align-items: center;
     justify-content: left;

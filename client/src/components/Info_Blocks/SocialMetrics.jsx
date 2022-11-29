@@ -17,21 +17,17 @@ export default function SocialMetrics(){
 
     useEffect(()=>{
         if(isLoading){
-            setStatusColor("#2c3e5050")
             setStatusMsg("Loading...")
         }
         if(isSuccess){
             if(data.data){
-                setStatusColor("#7ccc63")
                 setStatusMsg(`Followers : Following`)
             }
             else {
-                setStatusColor("#e74c3c")
                 setStatusMsg("Failed to load social metrics.")
             }
         }
         if(isError){
-            setStatusColor("#e74c3c")
             setStatusMsg("Failed to load social metrics.")
         }
     }, [isLoading, isSuccess, data])

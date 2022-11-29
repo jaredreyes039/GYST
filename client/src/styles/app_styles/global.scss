@@ -5,7 +5,7 @@
 }
 
 body {
-    background-color: #202020;
+    background-color: #010101;
 }
 
 // Var Declarations
@@ -35,7 +35,7 @@ $White3: #e0e8ee;
 }
 @mixin modal{
     overflow-x: hidden;
-    padding: 8px;
+    padding: 24px;
     display: flex;
     flex-direction: column;
     background-color: $White2;

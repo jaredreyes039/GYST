@@ -18,17 +18,14 @@ export default function IssueModal(props){
         <div style={{opacity: props.opacity, display: props.display}} className='issue-modal'>
             <h1 className='issue-title'>{props.title}</h1>
             <p><strong>Assignees</strong>: {props.assignees}</p>
-            <p><strong>Comments</strong>: {props.comments ? props.comments.length : "None"}</p>
-            <h2 className='label'>Issue</h2>
+            <p style={{marginBottom: '12px'}}><strong>Comments</strong>: {props.comments ? props.comments.length : "None"}</p>
             <div className='issue-body-container'>
             <UserBlock mainIssue={props.user_data} />
             <div className='issue-body'>
                 <Markup content={props.body}></Markup>
             </div>
             </div>
-            <h2 className='label'>Reactions</h2>
             <Reactions className='reactions' reactions={props.reactions}></Reactions>
-            <h2 className='label'>Comments</h2>
             <div className='comments-container'>
                 <ul>
                     {props.comments.length > 0 ? props.comments.map((comment)=>{

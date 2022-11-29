@@ -24,41 +24,33 @@ export default function PubReposBlock(){
 
     useEffect(()=>{
         if(isLoading){
-            setStatusColor("#2c3e5050")
             setStatusMsg("Loading...")
             setDispData("...")
         }
         if(isSuccess && data.data !== ""){
             if(data.data.public_repos >= 5 && data.data.public_repos < 7){
-                setStatusColor("orange")
                 setStatusMsg("Your public repos are adding up, have you checked your code  for accidental leaks?")
                 setDispData(data.data.public_repos)
             } else if (data.data.public_repos < 3){
-                setStatusColor("#7ccc63")
                 setStatusMsg("Looking good champ, welcome to the world of programming!")
                 setDispData(data.data.public_repos)
             }
             else if (data.data.public_repos > 7){
-                setStatusColor("#e74c3c")
                 setStatusMsg("Hey, that's quite a lot of public code, maybe do a security check?")
                 setDispData(data.data.public_repos)
             }
             else{
-                
-                setStatusColor("#f39c12")
                 setStatusMsg("Remember, everyone can see these!")
                 setDispData(data.data.public_repos)
 
             }
             if(data.data.public_repos === 0){
-                setStatusColor("#2c3e5050")
                 setStatusMsg("No public repos currently active.")
                 setDispData(data.data.public_repos)
 
             }
         }
         if(isError){
-            setStatusColor("#e74c3c")
             setStatusMsg("Failed to load public repo data.")
             setDispData("Error")
         }
