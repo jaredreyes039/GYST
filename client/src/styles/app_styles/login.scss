@@ -202,3 +202,24 @@
 .red {
     background-color: #ff5757;
 }
+
+@media screen and (max-width: 1120px) {
+    .about-box {
+        flex-direction: column !important;
+    }
+}
+@media screen and (max-width: 870px) {
+    .image-backdrop {
+        width: fit-content;
+        min-height: unset;
+        height: unset;
+        & img {
+            width: 100%;
+        }
+    }
+    .login-header {
+        & img {
+            width: 75%;
+        }
+    }
+}
