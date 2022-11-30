@@ -1,2 +1,6 @@
 /node_modules
-README.md
+server.js
+.env
+/Models
+package.json
+package-lock.json
